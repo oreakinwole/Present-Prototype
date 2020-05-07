@@ -1,10 +1,8 @@
 import React from 'react';
-// import logo from './logo.svg';
+import Register from './Register';
 
 const App = () => (
-    <div className="App">
-        <h1>Lets go</h1>
-    </div>
+    <Register />
 );
 
 export default App;
