@@ -10,4 +10,7 @@
 /tmp/**
 next.config.js
 
+
 # Add any other files or folders that you want eslint to ignore
+/src/App.test.js
+/src/serviceWorker.js
