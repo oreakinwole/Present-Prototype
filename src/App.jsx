@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Register from './Register';
+import Home from './Home';
 import Login from './Login';
 
 // toast for notification
@@ -22,7 +23,8 @@ toast.configure(
 
 const App = () => (
     <BrowserRouter>
-        <Route exact path="/" component={Login} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/Login" component={Login} />
         <Route path="/register" component={Register} />
     </BrowserRouter>
 );

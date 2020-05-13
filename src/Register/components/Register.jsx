@@ -1,20 +1,15 @@
 import React from 'react';
-import menuIcon from '../../assets/hamburger-white.svg';
-import dotsIcon from '../../assets/3dots.png';
 
-import { LayoutWrapper, WidthWrapper } from '../../components/GlobalStyle';
+import Header from '../../components/Header';
+import { LayoutWrapper, WidthWrapper } from '../../components/reusablestyles/GlobalStyle';
 import {
-    RegForm, Header, RegSubmitBtn
-} from './style';
+    RegForm, RegSubmitBtn
+} from '../../components/reusablestyles/RegFormStyle';
 
 const Register = () => (
     <LayoutWrapper>
         <WidthWrapper>
-            <Header>
-                <div><img src={menuIcon} alt="menu" /></div>
-                <h2> Create Profile</h2>
-                <div><img src={dotsIcon} alt="menu" /></div>
-            </Header>
+            <Header title="Create Profile" />
             <RegForm>
                 <label>
                     First name

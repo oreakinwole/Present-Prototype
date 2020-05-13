@@ -1,61 +1,28 @@
 import React from 'react';
-import styled from 'styled-components';
-import presentLogo from '../../assets/present_logo.png';
+
+import Header from '../../components/Header';
+import { LayoutWrapper, WidthWrapper } from '../../components/reusablestyles/GlobalStyle';
 import {
-    LayoutWrapper, WidthWrapperCenter
-} from '../../components/GlobalStyle';
-
-const LogoDiv = styled.div`
-    text-align: center;
-    img{
-        max-width: 200px;
-        height: auto;
-    }
-`;
-const ButtonBP = styled.button`
-    border: none;
-    cursor: pointer;
-    width: 70%;
-    height: 60px;
-    background-color: ${({ btnBgColor }) => btnBgColor};
-    color: ${({ textColor }) => textColor};
-    border-radius: 30px;
-    font-size: 1.3em;
-        &:nth-of-type(2){
-            margin-top: 20px;
-        }
-        &:focus{
-            outline:none;
-        }
-`;
-
-const CaptionPara = styled.p`
-    text-align: center;
-    width: 70%;
-    color: #6c6c6c;
-`;
+    RegForm, RegSubmitBtn
+} from '../../components/reusablestyles/RegFormStyle';
 
 const Login = () => (
     <LayoutWrapper>
-        <WidthWrapperCenter>
-            <LogoDiv>
-                <img src={presentLogo} alt="logo" />
-            </LogoDiv>
-            <CaptionPara>
-                By choosing this app
-                you have made every simple things easy in life smarter.
-            </CaptionPara>
-            <ButtonBP btnBgColor="#263a79" textColor="white">Continue with Facebook</ButtonBP>
-            <ButtonBP btnBgColor="#d2d2d2" textColor="#6c6c6c">Continue with Google</ButtonBP>
-            <p>
-                or &nbsp;
-                <a style={{ color: '#fd5554' }} href="/">Click here to Sign Up</a>
-            </p>
-            <p style={{ fontSize: '12px' }}>
-                By Signing up, you agree to our
-                <strong style={{ color: '#6c6c6c' }}> Terms of Use and Privacy Policy</strong>
-            </p>
-        </WidthWrapperCenter>
+        <WidthWrapper>
+            <Header title="Log In" />
+            <RegForm>
+                <label>
+                    E-mail
+                    <input type="email" required />
+                </label>
+                <label>
+                    Password
+                    <input type="password" required />
+                </label>
+                <RegSubmitBtn type="submit">Continue</RegSubmitBtn>
+            </RegForm>
+
+        </WidthWrapper>
     </LayoutWrapper>
 );
 
