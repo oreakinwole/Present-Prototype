@@ -2,13 +2,14 @@ import React from 'react';
 import menuIcon from '../../assets/hamburger-white.svg';
 import dotsIcon from '../../assets/3dots.png';
 
+import { LayoutWrapper, WidthWrapper } from '../../components/GlobalStyle';
 import {
-    LayoutWrapper, RegForm, RegScreenWrapper, Header, RegSubmitBtn
+    RegForm, Header, RegSubmitBtn
 } from './style';
 
 const Register = () => (
     <LayoutWrapper>
-        <RegScreenWrapper>
+        <WidthWrapper>
             <Header>
                 <div><img src={menuIcon} alt="menu" /></div>
                 <h2> Create Profile</h2>
@@ -39,7 +40,7 @@ const Register = () => (
                 <RegSubmitBtn type="submit">Continue</RegSubmitBtn>
             </RegForm>
 
-        </RegScreenWrapper>
+        </WidthWrapper>
     </LayoutWrapper>
 );
 

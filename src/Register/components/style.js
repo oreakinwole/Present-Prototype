@@ -1,19 +1,5 @@
 import styled from 'styled-components';
 
-const LayoutWrapper = styled.div`
-    background-color: black;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-`;
-
-const RegScreenWrapper = styled.div`
-    max-width: 500px;
-    width: 100%;
-    height: 100vh;
-`;
-
 const Header = styled.div`
     background-color: #20243f;
     width: 100%;
@@ -73,5 +59,5 @@ const RegSubmitBtn = styled.button`
 `;
 
 export {
-    LayoutWrapper, RegForm, RegScreenWrapper, Header, RegSubmitBtn
+    RegForm, Header, RegSubmitBtn
 };
