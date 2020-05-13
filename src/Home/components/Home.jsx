@@ -60,7 +60,7 @@ const Home = () => (
             </ButtonBP>
             <p>
                 or &nbsp;
-                <a style={{ color: '#fd5554' }} href="/register">Click here to Sign Up</a>
+                <Link style={{ color: '#fd5554' }} to="/register">Click here to Sign Up</Link>
             </p>
             <p style={{ fontSize: '12px' }}>
                 By Signing up, you agree to our
