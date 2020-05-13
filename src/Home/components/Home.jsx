@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import presentLogo from '../../assets/present_logo.png';
 import {
     LayoutWrapper, WidthWrapperCenter
@@ -21,6 +22,10 @@ const ButtonBP = styled.button`
     color: ${({ textColor }) => textColor};
     border-radius: 30px;
     font-size: 1.3em;
+        a {
+            color: ${({ textColor }) => textColor};
+            text-decoration: none;
+        }
         &:nth-of-type(2){
             margin-top: 20px;
         }
@@ -45,11 +50,17 @@ const Home = () => (
                 By choosing this app
                 you have made every simple things easy in life smarter.
             </CaptionPara>
-            <ButtonBP btnBgColor="#263a79" textColor="white">Continue with Facebook</ButtonBP>
-            <ButtonBP btnBgColor="#d2d2d2" textColor="#6c6c6c">Continue with Google</ButtonBP>
+
+            <ButtonBP btnBgColor="#263a79" textColor="white">
+                <Link to="/login">Continue with Facebook</Link>
+            </ButtonBP>
+
+            <ButtonBP btnBgColor="#d2d2d2" textColor="#6c6c6c">
+                <Link to="/login">Continue with Google</Link>
+            </ButtonBP>
             <p>
                 or &nbsp;
-                <a style={{ color: '#fd5554' }} href="/">Click here to Sign Up</a>
+                <a style={{ color: '#fd5554' }} href="/register">Click here to Sign Up</a>
             </p>
             <p style={{ fontSize: '12px' }}>
                 By Signing up, you agree to our
