@@ -32,6 +32,11 @@ const RegSubmitBtn = styled.button`
     margin-top: 20px;
     cursor: pointer;
     transition: all .2s;
+    color: ${({ siginingIn, isLogginIn }) => (siginingIn || isLogginIn ? 'white' : null)};
+    border: ${({ siginingIn, isLogginIn }) => (siginingIn || isLogginIn ? 'none' : null)};
+    outline: ${({ siginingIn, isLogginIn }) => (siginingIn || isLogginIn ? 'none' : null)};
+    background-color:
+    ${({ siginingIn, isLogginIn }) => (siginingIn || isLogginIn ? '#262d5a' : null)};
         &:hover{
             color: #fff;
             background-color:#262d5a;

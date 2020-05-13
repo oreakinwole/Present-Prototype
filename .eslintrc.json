@@ -100,7 +100,7 @@
       }
     ],
     "max-lines-per-function": ["error", 100],
-    "sort-keys": ["error", "asc"],
+    // "sort-keys": ["error", "asc"],
 
     "react/no-danger": "error",
     "react/void-dom-elements-no-children": "error",
