@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const RegForm = styled.form`
-    background-color: #263a79;
     width: 100%;
     height: calc(100vh - 100px);
     padding: 40px 20px 0;

@@ -9,12 +9,16 @@ const LayoutWrapper = styled.div`
 `;
 
 const WidthWrapper = styled.div`
+    // color: white;
+    background-color: #263a79;
+    padding-top: 100px;
     max-width: 500px;
     width: 100%;
     height: 100vh;
 `;
 
-const WidthWrapperCenter = styled.div`
+const WidthWrapperCenterHome = styled.div`
+    padding-top: 100px;
     max-width: 500px;
     width: 100%;
     height: 100vh;
@@ -24,4 +28,17 @@ const WidthWrapperCenter = styled.div`
     align-items: center;
 `;
 
-export { LayoutWrapper, WidthWrapper, WidthWrapperCenter };
+const WidthWrapperCenter = styled.div`
+    color: white;
+    background-color: #263a79;
+    padding-top: 100px;
+    max-width: 500px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+export { LayoutWrapper, WidthWrapper, WidthWrapperCenter, WidthWrapperCenterHome };

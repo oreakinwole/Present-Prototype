@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Register from './Register';
 import Home from './Home';
 import Login from './Login';
+import Start from './Start';
 
 // toast for notification
 toast.configure(
@@ -26,6 +27,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/Login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/start" component={Start} />
     </BrowserRouter>
 );
 

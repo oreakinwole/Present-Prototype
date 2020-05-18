@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import presentLogo from '../../assets/present_logo.png';
 import {
-    LayoutWrapper, WidthWrapperCenter
+    LayoutWrapper, WidthWrapperCenterHome
 } from '../../components/reusablestyles/GlobalStyle';
 
 const LogoDiv = styled.div`
@@ -42,7 +42,7 @@ const CaptionPara = styled.p`
 
 const Home = () => (
     <LayoutWrapper>
-        <WidthWrapperCenter>
+        <WidthWrapperCenterHome>
             <LogoDiv>
                 <img src={presentLogo} alt="logo" />
             </LogoDiv>
@@ -66,7 +66,7 @@ const Home = () => (
                 By Signing up, you agree to our
                 <strong style={{ color: '#6c6c6c' }}> Terms of Use and Privacy Policy</strong>
             </p>
-        </WidthWrapperCenter>
+        </WidthWrapperCenterHome>
     </LayoutWrapper>
 );
 

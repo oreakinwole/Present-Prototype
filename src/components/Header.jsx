@@ -4,8 +4,10 @@ import menuIcon from '../assets/hamburger-white.svg';
 import dotsIcon from '../assets/3dots.png';
 
 const HeaderCon = styled.div`
+    position: fixed;
+    top: 0;
     background-color: #20243f;
-    width: 100%;
+    width: 500px;
     height: 100px;
     display: flex;
     justify-content: space-between;
