@@ -7,7 +7,8 @@ const HeaderCon = styled.div`
     position: fixed;
     top: 0;
     background-color: #20243f;
-    width: 500px;
+    max-width: 500px;
+    width: 100%;
     height: 100px;
     display: flex;
     justify-content: space-between;

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const LayoutWrapper = styled.div`
-    // background-color: black;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -9,7 +8,6 @@ const LayoutWrapper = styled.div`
 `;
 
 const WidthWrapper = styled.div`
-    // color: white;
     background-color: #263a79;
     padding-top: 100px;
     max-width: 500px;
@@ -41,4 +39,9 @@ const WidthWrapperCenter = styled.div`
     align-items: center;
 `;
 
-export { LayoutWrapper, WidthWrapper, WidthWrapperCenter, WidthWrapperCenterHome };
+export {
+    LayoutWrapper,
+    WidthWrapper,
+    WidthWrapperCenter,
+    WidthWrapperCenterHome
+};
