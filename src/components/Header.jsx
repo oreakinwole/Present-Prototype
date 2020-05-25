@@ -16,17 +16,22 @@ const HeaderCon = styled.div`
     padding: 0 20px;
     color: white;
         img{
+            width: 30px;
             cursor: pointer;
         }
-        img:nth-child(1){
-            width: 30px;
-        }
-        
+
 `;
 
-const Header = ({ title }) => (
+const Header = ({ title, toggleSB }) => (
     <HeaderCon>
-        <div><img src={menuIcon} alt="menu" /></div>
+        <div
+            role="button"
+            onClick={toggleSB}
+            onKeyPress={toggleSB}
+            tabIndex={0}
+        >
+            <img src={menuIcon} alt="menu" />
+        </div>
         <h2>
             {title}
         </h2>

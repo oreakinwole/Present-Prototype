@@ -9,7 +9,7 @@ import {
 import { usersData } from '../../../utility';
 
 const Register = () => {
-    const [siginingIn, setSiginingIn] = useState(false);
+    const [signingIn, setSigningIn] = useState(false);
     const firstNameInput = useRef(null);
     const lastNameInput = useRef(null);
     const emailInput = useRef(null);
@@ -18,12 +18,12 @@ const Register = () => {
 
     const doSignIn = e => {
         e.preventDefault();
-        setSiginingIn(true);
+        setSigningIn(true);
         setTimeout(() => {
             if (passwordInput.current.value !== cPasswordInput.current.value) {
                 toast.error('passwords do not match');
                 passwordInput.current.focus();
-                setSiginingIn(false);
+                setSigningIn(false);
             } else {
                 usersData.push({
                     firstname: firstNameInput.current.value,
@@ -31,15 +31,15 @@ const Register = () => {
                     email: emailInput.current.value,
                     password: passwordInput.current.value,
                 });
-                setSiginingIn(false);
+                setSigningIn(false);
                 toast.success(`Registration Successful ${firstNameInput.current.value}`);
             }
         }, 2000);
     };
     return (
         <LayoutWrapper>
+            <Header title="Create Profile" />
             <WidthWrapper>
-                <Header title="Create Profile" />
                 <RegForm onSubmit={doSignIn}>
                     <label>
                         First name
@@ -62,8 +62,8 @@ const Register = () => {
                         <input ref={cPasswordInput} type="password" maxLength="50" required />
                     </label>
 
-                    <RegSubmitBtn type="submit" siginingIn={siginingIn}>
-                        {siginingIn ? 'Signing in...' : 'Sign in'}
+                    <RegSubmitBtn type="submit" signingIn={signingIn}>
+                        {signingIn ? 'Signing in...' : 'Sign in'}
                     </RegSubmitBtn>
                 </RegForm>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SideNavS = styled.aside`
+    margin-left: ${({ isOpen }) => (isOpen ? '0px' : '-60%')};
     position: fixed;
     left:0;
     top: 0;
@@ -13,6 +14,7 @@ const SideNavS = styled.aside`
     flex-direction: column;
     justify-content: top;
     padding-top: 20px;
+    transition: all ease-in-out .8s;
         header{
             width: 100%;
             height: 100px;
@@ -41,6 +43,7 @@ const SideNavS = styled.aside`
                 }
         }
         .p-nav{
+            color: white;
             margin-top: 20px;
                 p{
                     width:100%;
@@ -64,8 +67,8 @@ const SideNavS = styled.aside`
         }
 `;
 
-const SideNav = () => (
-    <SideNavS>
+const SideNav = ({ open }) => (
+    <SideNavS isOpen={open}>
         <header>
             <div className="p-pic" />
             <div className="p-detail">

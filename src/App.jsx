@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Start from './pages/Start';
+import Profile from './pages/Profile';
 
 // toast for notification
 toast.configure(
@@ -28,6 +29,7 @@ const App = () => (
         <Route exact path="/Login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/start" component={Start} />
+        <Route path="/profile" component={Profile} />
     </BrowserRouter>
 );
 

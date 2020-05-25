@@ -9,10 +9,11 @@ const LayoutWrapper = styled.div`
 
 const WidthWrapper = styled.div`
     background-color: #263a79;
-    padding-top: 100px;
+    padding: 100px 40px 0px;
     max-width: 500px;
     width: 100%;
     height: 100vh;
+    color: white;
 `;
 
 const WidthWrapperCenterHome = styled.div`

@@ -35,8 +35,8 @@ const Login = () => {
 
     return (
         <LayoutWrapper>
+            <Header title="Log In" />
             <WidthWrapper>
-                <Header title="Log In" />
                 <RegForm onSubmit={onLoginFormSubmit}>
                     <label>
                         E-mail
