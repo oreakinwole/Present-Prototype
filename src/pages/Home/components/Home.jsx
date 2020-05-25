@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import presentLogo from '../../assets/present_logo.png';
+import presentLogo from '../../../assets/present_logo.png';
 import {
     LayoutWrapper, WidthWrapperCenterHome
-} from '../../components/reusablestyles/GlobalStyle';
+} from '../../../components/reusablestyles/GlobalStyle';
 
 const LogoDiv = styled.div`
     text-align: center;

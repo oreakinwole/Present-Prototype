@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Register from './Register';
-import Home from './Home';
-import Login from './Login';
-import Start from './Start';
+import Register from './pages/Register';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Start from './pages/Start';
 
 // toast for notification
 toast.configure(

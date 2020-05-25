@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { toast } from 'react-toastify';
-import Header from '../../components/Header';
-import { LayoutWrapper, WidthWrapper } from '../../components/reusablestyles/GlobalStyle';
+import Header from '../../../components/Header';
+import { LayoutWrapper, WidthWrapper } from '../../../components/reusablestyles/GlobalStyle';
 import {
     RegForm, RegSubmitBtn
-} from '../../components/reusablestyles/RegFormStyle';
-import { usersData } from '../../utility';
+} from '../../../components/reusablestyles/RegFormStyle';
+import { usersData } from '../../../utility';
 
 const Login = () => {
     const emailInput = useRef(null);

@@ -1,15 +1,15 @@
 import React from 'react';
-import Header from '../../components/Header';
+import Header from '../../../components/Header';
 import {
     LayoutWrapper, WidthWrapperCenter
-} from '../../components/reusablestyles/GlobalStyle';
+} from '../../../components/reusablestyles/GlobalStyle';
 import {
     StartCircle,
     RangeBar,
     PointsIndictor
 } from './style';
 
-import SideNav from '../../components/SideNav';
+import SideNav from '../../../components/SideNav';
 
 const Start = () => (
     <LayoutWrapper>
