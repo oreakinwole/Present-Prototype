@@ -28,8 +28,22 @@ const PointsIndictor = styled.p`
     font-size: 1.8em;
 `;
 
+const CancelIndicator = styled.div`
+    width: 60px;
+    height: 60px;
+    border: 1px solid rgba(0, 192, 244, 0.20);
+    text-align: center;
+    border-radius: 50%;
+    font-size: 2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 export {
     StartCircle,
     RangeBar,
-    PointsIndictor
+    PointsIndictor,
+    CancelIndicator
 };
