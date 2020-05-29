@@ -15,10 +15,16 @@ const HeaderCon = styled.div`
     align-items: center;
     padding: 0 20px;
     color: white;
-        img{
-            width: 30px;
-            cursor: pointer;
+        div{
+            img{
+                width: 30px;
+                cursor: pointer;
+            }
+            &:focus{
+                outline: none;
+            }
         }
+
 
 `;
 

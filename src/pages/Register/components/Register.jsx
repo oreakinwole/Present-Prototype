@@ -16,7 +16,7 @@ const Register = () => {
     const passwordInput = useRef(null);
     const cPasswordInput = useRef(null);
 
-    const doSignIn = e => {
+    const doRegister = e => {
         e.preventDefault();
         setSigningIn(true);
         setTimeout(() => {
@@ -40,7 +40,7 @@ const Register = () => {
         <LayoutWrapper>
             <Header title="Create Profile" />
             <WidthWrapper>
-                <RegForm onSubmit={doSignIn}>
+                <RegForm onSubmit={doRegister}>
                     <label>
                         First name
                         <input ref={firstNameInput} type="text" maxLength="50" required />

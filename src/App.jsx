@@ -8,6 +8,8 @@ import Login from './pages/Login';
 import Start from './pages/Start';
 import Profile from './pages/Profile';
 import Store from './pages/Store';
+import Todo from './pages/Todo';
+import TodoCreate from './pages/TodoCreate';
 
 // toast for notification
 toast.configure(
@@ -32,6 +34,8 @@ const App = () => (
         <Route path="/start" component={Start} />
         <Route path="/profile" component={Profile} />
         <Route path="/store" component={Store} />
+        <Route path="/todo" component={Todo} />
+        <Route path="/todocr" component={TodoCreate} />
     </BrowserRouter>
 );
 
