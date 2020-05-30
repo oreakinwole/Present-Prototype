@@ -12,6 +12,7 @@ import {
 
 import SideNav from '../../../components/SideNav';
 import MedSong from '../../../assets/medsong.mp3';
+import { retrieveCurUser } from '../../../utility';
 
 const Start = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -39,7 +40,7 @@ const Start = () => {
     return (
         <LayoutWrapper>
             <SideNav open={sidebarOpen} />
-            <Header toggleSB={toggleSbOnKeypress} />
+            <Header toggleSB={toggleSbOnKeypress} title={retrieveCurUser()} />
 
             <WidthWrapperCenter onClick={() => setSidebarOpen(false)}>
                 <StartCircle onClick={() => song.current.play()}><p>{!medTime ? 'Click Here To Start' : medTime}</p></StartCircle>

@@ -5,6 +5,7 @@ import {
     LayoutWrapper, WidthWrapper
 } from '../../../components/reusablestyles/GlobalStyle';
 import SideNav from '../../../components/SideNav';
+import bukkaHut from '../../../assets/Bh_logo.png';
 
 const Row = styled.section`
     display: flex;
@@ -16,8 +17,7 @@ const Row = styled.section`
                     width: 90%;
                     height: 150px;
                     border-radius: 30px;
-                    background: url('https://businesscenter.ng/media/Bukka-Hut-Logo.png');
-                    background-size: cover;
+                    background: #fff url(${bukkaHut}) no-repeat center;
                     cursor: pointer;
                     display: flex;
                     flex-direction: column-reverse;

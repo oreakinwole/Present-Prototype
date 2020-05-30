@@ -6,21 +6,24 @@ import {
     LayoutWrapper, WidthWrapper
 } from '../../../components/reusablestyles/GlobalStyle';
 import SideNav from '../../../components/SideNav';
-// import { todoData } from '../../../utility';
 
 const Heading = styled.div`
     text-align: center;
-    margin: 20px 0;
+    background: #fff;
+    color: black;
+    width: 250px;
+    margin: 20px auto;
     font-size: 25px;
     font-weight: bold;
+    padding-left: 5px;
+    border: 1px dashed #26448D;
     input{
         text-transform: uppercase;
         background: transparent;
         border: none;
         outline: none;
-        color: white;
         &::placeholder{
-            color: white;
+            color: black;
         }
     }
 `;
@@ -32,7 +35,6 @@ const TodoBody = styled.section`
             li{
 
                 font-size: 1.2em;
-                font-weight: bolder;
                 background: #26448D;
                 margin-bottom: 10px;
                 padding: 4px 0;

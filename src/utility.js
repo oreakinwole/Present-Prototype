@@ -9,24 +9,25 @@ export const usersData = [
 
 export const storeCurUser = cUser => sessionStorage.setItem('presentAppCurrentUser', cUser);
 export const retrieveCurUser = () => sessionStorage.getItem('presentAppCurrentUser');
+export const removeCurUser = () => sessionStorage.removeItem('presentAppCurrentUser');
 
 export const getCurUserName = email => usersData.find(val => val.email === email);
 
 export const todoData = [
     {
-        title: 'Cooking Recipe',
+        title: 'Monday Todo',
         details: [
-            'Cook Food',
-            'Add Spice',
-            'Make Ready',
+            'Make Logo Design',
+            'Implement signin feature to present app',
+            'Push feature to github',
         ],
     },
     {
-        title: 'Make Friends',
+        title: 'Tuesday Todo',
         details: [
-            'Approach',
-            'Meet',
-            'Hangout',
+            'Create Stripe account',
+            'Register Present App on Google ad service',
+            'Commit recent changes to github',
         ],
     },
 ];

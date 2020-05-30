@@ -33,7 +33,6 @@ const Register = () => {
                 });
                 const { firstname, lastname } = getCurUserName(emailInput.current.value);
                 storeCurUser(`${firstname} ${lastname}`);
-                toast.success(`Registration Successful ${firstNameInput.current.value}`);
                 setSigningIn(false);
                 window.location.assign('/profile');
             }
