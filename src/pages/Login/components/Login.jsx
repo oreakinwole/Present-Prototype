@@ -5,7 +5,7 @@ import { LayoutWrapper, WidthWrapper } from '../../../components/reusablestyles/
 import {
     RegForm, RegSubmitBtn
 } from '../../../components/reusablestyles/RegFormStyle';
-import { usersData } from '../../../utility';
+import { usersData, storeCurUser, getCurUserName } from '../../../utility';
 
 const Login = () => {
     const emailInput = useRef(null);
@@ -27,8 +27,10 @@ const Login = () => {
                 emailInput.current.focus();
                 setIsLogginIn(false);
             } else {
-                toast.success('Welcome');
+                const { firstname, lastname } = getCurUserName(emailInput.current.value);
+                storeCurUser(`${firstname} ${lastname}`);
                 setIsLogginIn(false);
+                window.location.assign('/profile');
             }
         }, 2000);
     };
@@ -40,7 +42,7 @@ const Login = () => {
                 <RegForm onSubmit={onLoginFormSubmit}>
                     <label>
                         E-mail
-                        <input ref={emailInput} type="email" maxLength="50" required />
+                        <input ref={emailInput} type="email" maxLength="50" autoComplete="on" required />
                     </label>
                     <label>
                         Password

@@ -6,7 +6,7 @@ import { LayoutWrapper, WidthWrapper } from '../../../components/reusablestyles/
 import {
     RegForm, RegSubmitBtn
 } from '../../../components/reusablestyles/RegFormStyle';
-import { usersData } from '../../../utility';
+import { usersData, getCurUserName, storeCurUser } from '../../../utility';
 
 const Register = () => {
     const [signingIn, setSigningIn] = useState(false);
@@ -31,8 +31,11 @@ const Register = () => {
                     email: emailInput.current.value,
                     password: passwordInput.current.value,
                 });
-                setSigningIn(false);
+                const { firstname, lastname } = getCurUserName(emailInput.current.value);
+                storeCurUser(`${firstname} ${lastname}`);
                 toast.success(`Registration Successful ${firstNameInput.current.value}`);
+                setSigningIn(false);
+                window.location.assign('/profile');
             }
         }, 2000);
     };

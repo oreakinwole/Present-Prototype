@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Header from '../../../components/Header';
 import {
     LayoutWrapper, WidthWrapper
 } from '../../../components/reusablestyles/GlobalStyle';
 import SideNav from '../../../components/SideNav';
+import { todoData } from '../../../utility';
 
 const AddIconDiv = styled.div`
     margin: 20px 0 40px;
@@ -20,6 +22,10 @@ const AddIconDiv = styled.div`
 const TodoListDiv = styled.section`
     font-size: 1.2em;
     font-weight: bold;
+        a{
+            text-decoration: none;
+            color: white;
+        }
         div{
             margin 0 auto 20px;
             text-align: center;
@@ -42,31 +48,39 @@ const Todo = () => {
 
             <WidthWrapper onClick={() => setSidebarOpen(false)}>
                 <AddIconDiv>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="43" height="44" viewBox="0 0 43 44">
-                        <g id="Group_13" data-name="Group 13" transform="translate(-313 -49)">
-                            <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(313 49)" fill="none" stroke="#fff" strokeWidth="5">
-                                <ellipse cx="21.5" cy="22" rx="21.5" ry="22" stroke="none" />
-                                <ellipse cx="21.5" cy="22" rx="19" ry="19.5" fill="none" />
+                    <Link to="/todocr">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="43" height="44" viewBox="0 0 43 44">
+                            <g id="Group_13" data-name="Group 13" transform="translate(-313 -49)">
+                                <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(313 49)" fill="none" stroke="#fff" strokeWidth="5">
+                                    <ellipse cx="21.5" cy="22" rx="21.5" ry="22" stroke="none" />
+                                    <ellipse cx="21.5" cy="22" rx="19" ry="19.5" fill="none" />
+                                </g>
+                                <g id="Group_1" data-name="Group 1" transform="translate(322.02 58.52)">
+                                    <path id="Path_1" data-name="Path 1" d="M465,181v24.3" transform="translate(-452.848 -181)" fill="none" stroke="#fff" strokeWidth="5" />
+                                    <path id="Path_2" data-name="Path 2" d="M0,0V24.3" transform="translate(24.304 12.152) rotate(90)" fill="none" stroke="#fff" strokeWidth="5" />
+                                </g>
                             </g>
-                            <g id="Group_1" data-name="Group 1" transform="translate(322.02 58.52)">
-                                <path id="Path_1" data-name="Path 1" d="M465,181v24.3" transform="translate(-452.848 -181)" fill="none" stroke="#fff" strokeWidth="5" />
-                                <path id="Path_2" data-name="Path 2" d="M0,0V24.3" transform="translate(24.304 12.152) rotate(90)" fill="none" stroke="#fff" strokeWidth="5" />
-                            </g>
-                        </g>
-                    </svg>
+                        </svg>
+                    </Link>
 
                 </AddIconDiv>
 
                 <TodoListDiv>
-                    <div>
-                        <p>Cooking Recipe</p>
-                    </div>
-                    <div>
-                        <p>Cooking Recipe</p>
-                    </div>
-                    <div>
-                        <p>Cooking Recipe</p>
-                    </div>
+                    {
+                        todoData.map(item => (
+                            <Link
+                                to={{
+                                    pathname: '/todocr',
+                                    state: item,
+                                }}
+                                key={item.title}
+                            >
+                                <div>
+                                    <p>{item.title}</p>
+                                </div>
+                            </Link>
+                        ))
+                    }
                 </TodoListDiv>
             </WidthWrapper>
 

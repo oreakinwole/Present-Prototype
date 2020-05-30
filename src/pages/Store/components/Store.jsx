@@ -4,9 +4,7 @@ import Header from '../../../components/Header';
 import {
     LayoutWrapper, WidthWrapper
 } from '../../../components/reusablestyles/GlobalStyle';
-
 import SideNav from '../../../components/SideNav';
-import ImagePlaceholder from '../../../assets/davido.jpeg';
 
 const Row = styled.section`
     display: flex;
@@ -18,7 +16,7 @@ const Row = styled.section`
                     width: 90%;
                     height: 150px;
                     border-radius: 30px;
-                    background: url(${ImagePlaceholder});
+                    background: url('https://businesscenter.ng/media/Bukka-Hut-Logo.png');
                     background-size: cover;
                     cursor: pointer;
                     display: flex;

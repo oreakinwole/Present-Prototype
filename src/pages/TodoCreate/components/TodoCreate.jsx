@@ -1,13 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import Header from '../../../components/Header';
 import {
     LayoutWrapper, WidthWrapper
 } from '../../../components/reusablestyles/GlobalStyle';
 import SideNav from '../../../components/SideNav';
+// import { todoData } from '../../../utility';
 
-const Heading = styled.h2`
+const Heading = styled.div`
     text-align: center;
+    margin: 20px 0;
+    font-size: 25px;
+    font-weight: bold;
+    input{
+        text-transform: uppercase;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        &::placeholder{
+            color: white;
+        }
+    }
 `;
 
 const TodoBody = styled.section`
@@ -15,9 +30,9 @@ const TodoBody = styled.section`
     padding-top: 1px;
         ol{
             li{
+
                 font-size: 1.2em;
                 font-weight: bolder;
-                width: 250px;
                 background: #26448D;
                 margin-bottom: 10px;
                 padding: 4px 0;
@@ -48,9 +63,53 @@ const TodoBody = styled.section`
             }
         }
 `;
-const TodoCreate = () => {
+const TodoCreate = ({ location }) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
+    const [newTodo, setNewTodo] = useState({
+        title: '',
+        details: [],
+    });
+    const [isTitleSet, setIsTitleSet] = useState(false);
+    const titleInput = useRef(null);
+    const newItem = useRef(null);
+
+    const setTitle = e => {
+        if (e.which === 13) {
+            setNewTodo({
+                ...newTodo,
+                title: titleInput.current.value,
+            });
+            setIsTitleSet(true);
+            toast.info('Title Saved');
+        }
+    };
+
+    const addNewItem = e => {
+        e.preventDefault();
+        if (newItem.current.value !== '') {
+            setNewTodo({
+                ...newTodo,
+                details: [
+                    ...newTodo.details,
+                    newItem.current.value,
+                ],
+            });
+            newItem.current.value = '';
+        }
+    };
+
+    /* For When state is passed to this component, i.e user clicks any of the todo items on the /Todo route OR page */
+    useEffect(() => {
+        if (location.state) {
+            setNewTodo({
+                title: location.state.title,
+                details: location.state.details,
+            });
+        }
+        if (newTodo.title) setIsTitleSet(true);
+        else setIsTitleSet(false);
+    }, [location, newTodo.title]);
 
     return (
         <LayoutWrapper>
@@ -58,18 +117,20 @@ const TodoCreate = () => {
             <Header toggleSB={toggleSbOnKeypress} title="To Do" />
 
             <WidthWrapper onClick={() => setSidebarOpen(false)}>
-                <Heading>Cooking Recipe</Heading>
+                <Heading>
+                    {!isTitleSet && (<input type="text" maxLength="30" placeholder="Click to add Title" ref={titleInput} onKeyPress={setTitle} />)}
+                    {isTitleSet && (<input type="text" maxLength="30" placeholder={newTodo.title} readOnly />)}
+                </Heading>
                 <TodoBody>
                     <ol>
-                        <li>Cook Indomie</li>
-                        <li>Cook Indomie</li>
-                        <li>Cook Indomie</li>
-                        <li>Cook Indomie</li>
+                        {newTodo.details.map((val, i) => (
+                            <li key={`${i + val}`}>{val}</li>
+                        ))}
                     </ol>
                     <section>
-                        <form>
+                        <form onSubmit={addNewItem}>
                             <label>
-                                <input type="text" />
+                                <input type="text" ref={newItem} />
                             </label>
                             <button type="submit">+</button>
                         </form>
