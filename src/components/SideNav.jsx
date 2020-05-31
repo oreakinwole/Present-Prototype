@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import { retrieveCurUser, removeCurUser } from '../utility';
 
 const SideNavS = styled.aside`
@@ -72,11 +73,12 @@ const SideNavS = styled.aside`
 `;
 
 const SideNav = ({ open }) => {
-    const direct = loc => window.location.assign(loc);
-    const doLogout = () => {
+    const history = useHistory();
+    const direct = loc => history.push(loc);
+    const doLogout = () => setTimeout(() => {
         removeCurUser();
-        window.location.assign('/');
-    };
+        history.push('/');
+    }, 1000);
 
     return (
         <SideNavS isOpen={open}>

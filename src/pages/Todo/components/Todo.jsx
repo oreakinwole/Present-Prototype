@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable no-console */
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Header from '../../../components/Header';
@@ -41,6 +42,7 @@ const Todo = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
 
+    useEffect(() => console.log(todoData));
     return (
         <LayoutWrapper>
             <SideNav open={sidebarOpen} />
@@ -73,7 +75,7 @@ const Todo = () => {
                                     pathname: '/todocr',
                                     state: item,
                                 }}
-                                key={item.title}
+                                key={`${item.title}-${todoData.length}`}
                             >
                                 <div>
                                     <p>{item.title}</p>

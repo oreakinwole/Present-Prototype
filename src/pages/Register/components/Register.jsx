@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 
 import Header from '../../../components/Header';
 import { LayoutWrapper, WidthWrapper } from '../../../components/reusablestyles/GlobalStyle';
@@ -15,6 +16,8 @@ const Register = () => {
     const emailInput = useRef(null);
     const passwordInput = useRef(null);
     const cPasswordInput = useRef(null);
+
+    const history = useHistory();
 
     const doRegister = e => {
         e.preventDefault();
@@ -34,7 +37,7 @@ const Register = () => {
                 const { firstname, lastname } = getCurUserName(emailInput.current.value);
                 storeCurUser(`${firstname} ${lastname}`);
                 setSigningIn(false);
-                window.location.assign('/profile');
+                history.push('/profile');
             }
         }, 2000);
     };

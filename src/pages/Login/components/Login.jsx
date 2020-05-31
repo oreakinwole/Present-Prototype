@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 import Header from '../../../components/Header';
 import { LayoutWrapper, WidthWrapper } from '../../../components/reusablestyles/GlobalStyle';
 import {
@@ -11,6 +12,7 @@ const Login = () => {
     const emailInput = useRef(null);
     const passwordInput = useRef(null);
     const [isLogginIn, setIsLogginIn] = useState(false);
+    const history = useHistory();
 
     const onLoginFormSubmit = e => {
         e.preventDefault();
@@ -30,7 +32,7 @@ const Login = () => {
                 const { firstname, lastname } = getCurUserName(emailInput.current.value);
                 storeCurUser(`${firstname} ${lastname}`);
                 setIsLogginIn(false);
-                window.location.assign('/profile');
+                history.push('/profile');
             }
         }, 2000);
     };

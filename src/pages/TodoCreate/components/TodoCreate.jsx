@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable max-lines-per-function */
 import React, { useState, useRef, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
@@ -6,6 +8,7 @@ import {
     LayoutWrapper, WidthWrapper
 } from '../../../components/reusablestyles/GlobalStyle';
 import SideNav from '../../../components/SideNav';
+import { todoData } from '../../../utility';
 
 const Heading = styled.div`
     text-align: center;
@@ -76,13 +79,24 @@ const TodoCreate = ({ location }) => {
     const titleInput = useRef(null);
     const newItem = useRef(null);
 
+    /* For When state is passed to this component, i.e user clicks any of the todo items on the /Todo route OR page */
+    useEffect(() => {
+        if (location.state) {
+            setNewTodo({
+                title: location.state.title,
+                details: location.state.details,
+            });
+        }
+        if (newTodo.title) setIsTitleSet(true);
+        else setIsTitleSet(false);
+    }, [location, newTodo.title]);
+
     const setTitle = e => {
         if (e.which === 13) {
             setNewTodo({
                 ...newTodo,
                 title: titleInput.current.value,
             });
-            setIsTitleSet(true);
             toast.info('Title Saved');
         }
     };
@@ -101,17 +115,21 @@ const TodoCreate = ({ location }) => {
         }
     };
 
-    /* For When state is passed to this component, i.e user clicks any of the todo items on the /Todo route OR page */
-    useEffect(() => {
-        if (location.state) {
-            setNewTodo({
-                title: location.state.title,
-                details: location.state.details,
-            });
+    const doSave = () => {
+        if (location.state || newTodo.title) {
+            const getItem = todoData.find(thing => thing.title === newTodo.title);
+            if (!getItem) {
+                todoData.push(newTodo);
+                toast.success('saved');
+            } else {
+                const item = todoData.find(thing => thing.title === newTodo.title);
+                item.details = newTodo.details;
+                toast.success('saved');
+            }
+        } else {
+            toast.warning('no title set');
         }
-        if (newTodo.title) setIsTitleSet(true);
-        else setIsTitleSet(false);
-    }, [location, newTodo.title]);
+    };
 
     return (
         <LayoutWrapper>
@@ -138,6 +156,21 @@ const TodoCreate = ({ location }) => {
                         </form>
                     </section>
                 </TodoBody>
+                <button
+                    type="button"
+                    style={{
+                        marginTop: '30px',
+                        outline: 'none',
+                        border: '1px solid #26448D',
+                        background: 'transparent',
+                        color: '#fff',
+                        cursor: 'pointer',
+                        float: 'right',
+                    }}
+                    onClick={doSave}
+                >
+                    Save
+                </button>
 
             </WidthWrapper>
 
