@@ -14,6 +14,11 @@ const StartCircle = styled.div`
     padding: 0px 80px;
     text-align: center;
     cursor: pointer;
+    @media (max-width: 360px) {
+        width: 250px;
+        height: 250px;
+        padding: 0px 40px;
+    }
 `;
 
 const RangeBar = styled.div`

@@ -10,11 +10,19 @@ margin-top: 10px;
         height: 100px;
         border-radius: 50%;
         background: grey;
+        @media (max-width: 360px) {
+            width: 80px;
+            height: 80px;
+        }
     }
     div:last-child {
         width: 60%;
             p{
                 text-align: right;
+            }
+            @media (max-width: 360px) {
+                width: 65%;
+                margin-right: 5%;
             }
     }
     .progress{
@@ -39,7 +47,13 @@ margin-bottom: 60px;
             justify-content: center;
             align-items: center;
             font-size: 2em;
+            @media (max-width: 360px) {
+                width: 80px;
+                height: 80px;
+                // font-size: 1em;
+            }
         }
+
         .p-e{
             border: 2px solid #3cbcd9;
             color: #3cbcd9;

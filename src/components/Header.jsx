@@ -19,13 +19,22 @@ const HeaderCon = styled.div`
             img{
                 width: 30px;
                 cursor: pointer;
+                @media(max-width: 360px) {
+                    width: 25px;
+                }
             }
             &:focus{
                 outline: none;
             }
         }
-
-
+        h2 {
+            @media(max-width: 360px) {
+                font-size: 20px;
+            }
+        }
+    @media(max-width: 360px) {
+        padding: 0 10px;
+    }
 `;
 
 const Header = ({ title, toggleSB }) => (

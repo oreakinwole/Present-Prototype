@@ -30,7 +30,7 @@ const TodoListDiv = styled.section`
         div{
             margin 0 auto 20px;
             text-align: center;
-            width: 380px;
+            width: 80%;
             background: #A8C2FF;
             border-radius: 20px;
             padding: 1px 10px;

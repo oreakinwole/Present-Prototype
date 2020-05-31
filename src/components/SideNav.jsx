@@ -22,11 +22,10 @@ const SideNavS = styled.aside`
     transition: all ease-in-out .8s;
         header{
             width: 100%;
-            height: 100px;
+            max-height: 200px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-evenly;
             align-items: center;
-            padding-right: 20px;
                 .p-pic{
                     cursor: pointer;
                     width: 80px;
@@ -35,7 +34,7 @@ const SideNavS = styled.aside`
                     border-radius: 50%;
                 }
                 .p-detail{
-                    font-size: 1.3em;
+                    font-size: 20px;
                     color: #ebebeb;
                         .location{
                             font-size: .7em;
@@ -45,6 +44,11 @@ const SideNavS = styled.aside`
                                     margin-left: 5px;
                                 }
                         }
+                }
+                @media(max-width: 360px) {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                 }
         }
         .p-nav{
@@ -61,14 +65,23 @@ const SideNavS = styled.aside`
                     font-size: 1.2em;
                     font-weight: lighter;
                     cursor: pointer;
+                    @media(max-width: 360px) {
+                        font-size: 1em;
+                    }
                         svg{
                             width: 30px;
                             height: 30px;
                             margin-right: 15px;
                             fill: #db1c2e;
-
+                            @media(max-width: 360px) {
+                                width: 20px;
+                                height: 20px;
+                            }
                         }
                 }
+            @media(max-width: 360px) {
+                margin-top: 0px;
+            }
         }
 `;
 

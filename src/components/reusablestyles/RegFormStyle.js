@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const RegForm = styled.form`
     width: 100%;
-    height: calc(100vh - 100px);
+    // height: calc(100vh - 100px);
     padding: 40px 20px 0;
         label{
             color: #929292;
@@ -11,10 +11,10 @@ const RegForm = styled.form`
             border: none;
             outline: none;
             width: 100%;
-            height: 40px;
             background: none;
             border-bottom: 1px solid #fff;
-            margin-bottom: 40px;
+            margin-bottom: 10%;
+            margin-top: 5%;
             color: #fff;
             transition: all .4s;
             &:focus{
