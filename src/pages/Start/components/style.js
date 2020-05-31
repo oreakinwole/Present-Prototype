@@ -25,6 +25,7 @@ const RangeBar = styled.div`
 `;
 
 const PointsIndictor = styled.p`
+    margin-bottom: 5px;
     font-size: 1.8em;
 `;
 
@@ -39,6 +40,7 @@ const CancelIndicator = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 `;
 
 export {

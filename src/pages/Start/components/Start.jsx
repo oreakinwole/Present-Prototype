@@ -19,6 +19,7 @@ const Start = () => {
     const [medTime, setMedTime] = useState(null);
     const song = useRef(null);
     const [songPlaying, setSongPlaying] = useState(false);
+    const [currentPoints, setCurrentPoints] = useState(0);
 
     const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
 
@@ -30,6 +31,13 @@ const Start = () => {
         const seconds = Math.floor(elapsed % 60);
         const minutes = Math.floor(elapsed / 60);
         setMedTime(`${minutes}:${seconds}`);
+
+        if (seconds % 10 === 0) {
+            const newPoint = currentPoints + 10;
+            setTimeout(() => {
+                setCurrentPoints(newPoint);
+            }, 1000);
+        }
     };
 
     const doStopMusic = () => {
@@ -50,7 +58,17 @@ const Start = () => {
                 </audio>
                 <RangeBar />
 
-                <PointsIndictor>0 Points</PointsIndictor>
+                <PointsIndictor>{`${currentPoints} Points`}</PointsIndictor>
+                {currentPoints > 0 && (
+                    <p style={{
+                        margin: '0',
+                        fontSize: '.9em',
+                        color: 'rgb(255,255,255, .70)',
+                    }}
+                    >
+                        Focus! if you want more
+                    </p>
+                )}
                 {songPlaying && (<CancelIndicator onClick={doStopMusic}><p> X </p></CancelIndicator>)}
             </WidthWrapperCenter>
 
