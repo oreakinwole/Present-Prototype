@@ -19,7 +19,7 @@ const SideNavS = styled.aside`
     flex-direction: column;
     justify-content: top;
     padding-top: 20px;
-    transition: all ease-in-out .8s;
+    transition: all ease-in-out .5s;
         header{
             width: 100%;
             max-height: 200px;
@@ -171,7 +171,7 @@ const SideNav = ({ open }) => {
                     </svg>
                     FRIENDS
                 </p>
-                <p onClick={() => direct('/todo')}>
+                {/* <p onClick={() => direct('/todo')}>
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                         <title>ionicons-v5-k</title>
@@ -181,7 +181,7 @@ const SideNav = ({ open }) => {
                         <path d="M419.22,188.59,275.41,44.78A2,2,0,0,0,272,46.19V176a16,16,0,0,0,16,16H417.81A2,2,0,0,0,419.22,188.59Z" />
                     </svg>
                     TO DO
-                </p>
+                </p> */}
                 <p onClick={doLogout}>
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">

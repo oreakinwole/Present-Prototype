@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { toast } from 'react-toastify';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Header from '../../../components/Header';
 import { LayoutWrapper, WidthWrapper } from '../../../components/reusablestyles/GlobalStyle';
 import {
@@ -32,7 +32,7 @@ const Login = () => {
                 const { firstname, lastname } = getCurUserName(emailInput.current.value);
                 storeCurUser(`${firstname} ${lastname}`);
                 setIsLogginIn(false);
-                history.push('/profile');
+                history.push('/start');
             }
         }, 2000);
     };
@@ -53,6 +53,9 @@ const Login = () => {
                     <RegSubmitBtn type="submit" isLogginIn={isLogginIn}>
                         {isLogginIn ? 'Logging in...' : 'Log in'}
                     </RegSubmitBtn>
+                    <p>
+                        <Link style={{ color: '#fff', marginLeft: '30%' }} to="/register">Click here to Sign Up</Link>
+                    </p>
                 </RegForm>
 
             </WidthWrapper>

@@ -1,79 +1,104 @@
-import React, { useState, useRef } from 'react';
-import Header from '../../../components/Header';
-import {
-    LayoutWrapper, WidthWrapperCenter
-} from '../../../components/reusablestyles/GlobalStyle';
-import {
-    StartCircle,
-    RangeBar,
-    PointsIndictor,
-    CancelIndicator
-} from './style';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { LayoutWrapper } from '../../../components/reusablestyles/GlobalStyle';
+import headphoneIcon from '../../../assets/headphone.svg';
+import todoIcon from '../../../assets/todo.svg';
+import lockIcon from '../../../assets/locked.svg';
+import nextIcon from '../../../assets/next.png';
 
-import SideNav from '../../../components/SideNav';
-import MedSong from '../../../assets/medsong.mp3';
-import { retrieveCurUser } from '../../../utility';
-
-const Start = () => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [medTime, setMedTime] = useState(null);
-    const song = useRef(null);
-    const [songPlaying, setSongPlaying] = useState(false);
-    const [currentPoints, setCurrentPoints] = useState(0);
-
-    const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
-
-    const doTimeUpdate = () => {
-        setSongPlaying(true);
-        const fakeDuration = 600;
-        const { currentTime } = song.current;
-        const elapsed = fakeDuration - currentTime;
-        const seconds = Math.floor(elapsed % 60);
-        const minutes = Math.floor(elapsed / 60);
-        setMedTime(`${minutes}:${seconds}`);
-
-        if (seconds % 10 === 0) {
-            const newPoint = currentPoints + 10;
-            setTimeout(() => {
-                setCurrentPoints(newPoint);
-            }, 1000);
+const StartWrapper = styled.div`
+    background: #2D4B97;
+    max-width: 500px;
+    width: 100%;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+        header {
+            h2 {
+                color: #E6E6E6;
+                text-transform: uppercase;
+                max-width: 300px;
+                text-align: center;
+                line-height: 1.4em;
+                letter-spacing: .3px;
+            }
         }
-    };
+        h3 {
+            color: #E4DAF1;
+            text-transform: uppercase;
+            max-width: 200px;
+            text-align: center;
+        }
+        .facet-div {
+            width: 120px;
+            height: 120px;
+            background: #E4DAF1;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .4s;
+            cursor: pointer;
+            img {
+                width: 60%;
+            }
+            &:hover{
+                background: white;
+                transform: scale(1.2);
+            }
+        }
+        .next-div {
+            width: 70px;
+            cursor: pointer;
+            img {
+                width: 100%;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+`;
 
-    const doStopMusic = () => {
-        song.current.pause();
-        setMedTime('0:0');
-    };
+const Start = () => (
+    <LayoutWrapper>
+        <StartWrapper>
+            <header>
+                <h2>
+                    what you can do &nbsp;
+                    <u>w</u>
+                    ith
+                    present
+                </h2>
 
-    return (
-        <LayoutWrapper>
-            <SideNav open={sidebarOpen} />
-            <Header toggleSB={toggleSbOnKeypress} title={retrieveCurUser()} />
+            </header>
+            <Link to="/meditate">
+                <div className="facet-div">
+                    <img src={headphoneIcon} alt="speak" />
+                </div>
+            </Link>
+            <h3>meditate</h3>
 
-            <WidthWrapperCenter onClick={() => setSidebarOpen(false)}>
-                <StartCircle onClick={() => song.current.play()}><p>{!medTime ? 'Click Here To Start' : medTime}</p></StartCircle>
-                <audio onTimeUpdate={doTimeUpdate} ref={song}>
-                    <track kind="captions" />
-                    <source src={MedSong} />
-                </audio>
-                <RangeBar />
+            <Link to="/todo">
+                <div className="facet-div">
+                    <img src={todoIcon} alt="speak" />
+                </div>
+            </Link>
+            <h3>create a todo list</h3>
 
-                <PointsIndictor>{`${currentPoints} Points`}</PointsIndictor>
-                {currentPoints > 0 && (
-                    <p style={{
-                        margin: '0',
-                        fontSize: '.9em',
-                        color: 'rgb(255,255,255, .70)',
-                    }}
-                    >
-                        Focus! if you want more
-                    </p>
-                )}
-                {songPlaying && (<CancelIndicator onClick={doStopMusic}><p> X </p></CancelIndicator>)}
-            </WidthWrapperCenter>
+            <div className="facet-div">
+                <img src={lockIcon} alt="speak" />
+            </div>
+            <h3>lock your phone for a period</h3>
 
-        </LayoutWrapper>
-    );
-};
+            <div className="next-div">
+                <Link to="/profile"><img src={nextIcon} alt="next" /></Link>
+            </div>
+        </StartWrapper>
+    </LayoutWrapper>
+);
 
 export default Start;
