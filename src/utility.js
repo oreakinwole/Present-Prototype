@@ -15,19 +15,46 @@ export const getCurUserName = email => usersData.find(val => val.email === email
 
 export const todoData = [
     {
-        title: 'Monday Todo',
+        title: 'Todo',
         details: [
             'Make Logo Design',
             'Implement signin feature to present app',
             'Push feature to github',
         ],
+        isOpen: false,
     },
     {
-        title: 'Tuesday Todo',
+        title: 'Todo Tomorrow',
         details: [
             'Create Stripe account',
-            'Register Present App on Google ad service',
+            'Register Present App on Google',
             'Commit recent changes to github',
         ],
+        isOpen: false,
+    },
+    {
+        title: 'Todo Today',
+        details: [
+            'Create Paystack account',
+            'Do something here',
+            'Commit recent changes unto Codacy',
+        ],
+        isOpen: true,
+        addItem: false,
+    },
+    {
+        title: 'Work In progress',
+        details: [
+            'Cache Files',
+        ],
+        isOpen: true,
+        addItem: false,
+    },
+    {
+        title: 'Done',
+        details: [
+        ],
+        isOpen: true,
+        addItem: false,
     },
 ];

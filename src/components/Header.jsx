@@ -15,6 +15,7 @@ const HeaderCon = styled.div`
     align-items: center;
     padding: 0 20px;
     color: white;
+    z-index: 10;
         div{
             img{
                 width: 30px;

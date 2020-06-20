@@ -11,8 +11,9 @@ import Start from './pages/Start';
 import Meditate from './pages/Meditate';
 import Profile from './pages/Profile';
 import Store from './pages/Store';
-import Todo from './pages/Todo';
-import TodoCreate from './pages/TodoCreate';
+import TodoV2 from './pages/TodoV2';
+// import Todo from './pages/Todo';
+// import TodoCreate from './pages/TodoCreate';
 
 // toast for notification
 toast.configure(
@@ -40,8 +41,9 @@ const App = () => (
         <Route path="/Meditate" component={Meditate} />
         <Route path="/profile" component={Profile} />
         <Route path="/store" component={Store} />
-        <Route path="/todo" component={Todo} />
-        <Route path="/todocr" component={TodoCreate} />
+        <Route path="/todov2" component={TodoV2} />
+        {/* <Route path="/todo" component={Todo} />
+        <Route path="/todocr" component={TodoCreate} /> */}
     </BrowserRouter>
 );
 
