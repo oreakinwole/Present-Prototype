@@ -82,9 +82,9 @@ const Start = () => (
             </Link>
             <h3>meditate</h3>
 
-            <Link to="/todo">
+            <Link to="/todov2">
                 <div className="facet-div">
-                    <img src={todoIcon} alt="speak" />
+                    <img src={todoIcon} alt="todo list" />
                 </div>
             </Link>
             <h3>create a todo list</h3>
