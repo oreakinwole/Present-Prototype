@@ -38,7 +38,7 @@ const SplashWrapper = styled.div`
             line-height: 1.4em;
         }
         .controls-div {
-            margin: 60px 0;
+            margin: 5% 0 10%;
             cursor: pointer;
             display: flex;
                 div {

@@ -2,17 +2,18 @@ import styled from 'styled-components';
 
 const LayoutWrapper = styled.div`
     width: 100%;
+    max-width: 500px;
     // height: 100vh;
     display: flex;
     justify-content: center;
+    margin: 0 auto;
 `;
 
 const WidthWrapper = styled.div`
     background-color: #263a79;
     padding: 100px 40px 20px;
-    max-width: 500px;
     width: 100%;
-    height: 750px;
+    height: 100vh;
     color: white;
     @media (max-width: 360px) {
         padding: 100px 10px 0px;

@@ -7,9 +7,8 @@ import { useHistory } from 'react-router-dom';
 import { retrieveCurUser, removeCurUser } from '../utility';
 
 const SideNavS = styled.aside`
-    margin-left: ${({ isOpen }) => (isOpen ? '0px' : '-60%')};
     position: fixed;
-    left:0;
+    left:${({ isOpen }) => (isOpen ? '0' : '-60%')};
     top: 0;
     height: 100vh;
     width: 60%;
@@ -82,6 +81,10 @@ const SideNavS = styled.aside`
             @media(max-width: 360px) {
                 margin-top: 0px;
             }
+        }
+        @media(min-width: 992px) {
+            max-width: 400px;
+            left: ${({ isOpen }) => (isOpen ? '32%' : '-60%')};
         }
 `;
 
