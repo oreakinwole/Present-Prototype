@@ -11,7 +11,7 @@ const StartWrapper = styled.div`
     background: #2D4B97;
     max-width: 500px;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     display: flex;
     flex-direction: column;

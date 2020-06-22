@@ -9,8 +9,9 @@ const WidthWrapperNoBg = styled.div`
     padding: 50px 0px 0px;
     max-width: 500px;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
+    text-align: center;
     @media (max-width: 360px) {
         padding: 50px 0px 0px;
     }
@@ -18,7 +19,9 @@ const WidthWrapperNoBg = styled.div`
             display: flex;
             position: absolute;
             bottom: 0;
-            width: 500px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 440px;
             overflow: hidden;
                 div:nth-of-type(1) {
                     width: 40%;
@@ -78,9 +81,7 @@ const IntroHome = () => (
             </LogoDiv>
             <CaptionPara>
                 The Present App rewards you with
-                {' '}
                 <span>points</span>
-                {' '}
                 as you participate and successfully navigate through the present experience.
             </CaptionPara>
             <div className="body-divs">

@@ -12,7 +12,7 @@ const SplashWrapper = styled.div`
     padding: 50px 0px 0px;
     max-width: 500px;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     display: flex;
     flex-direction: column;
@@ -21,8 +21,8 @@ const SplashWrapper = styled.div`
             padding: 50px 0px 0px;
         }
         .top-div {
-            width: 200px;
-            height: 200px;
+            width: 12em;
+            height: 12em;
             border: ${({ bdColor }) => `8px solid ${bdColor}`};
             border-radius: 50%;
             img {

@@ -13,7 +13,7 @@ const WidthWrapper = styled.div`
     background-color: #263a79;
     padding: 100px 40px 20px;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     @media (max-width: 360px) {
         padding: 100px 10px 0px;
@@ -36,7 +36,7 @@ const WidthWrapperCenter = styled.div`
     padding-top: 100px;
     max-width: 500px;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
