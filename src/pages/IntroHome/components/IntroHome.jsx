@@ -9,7 +9,7 @@ const WidthWrapperNoBg = styled.div`
     padding: 50px 0px 0px;
     max-width: 500px;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     text-align: center;
     @media (max-width: 360px) {
