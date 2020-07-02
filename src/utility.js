@@ -15,7 +15,7 @@ export const getCurUserName = email => usersData.find(val => val.email === email
 
 export const todoData = [
     {
-        title: 'Todo',
+        title: 'Planned',
         details: [
             'Make Logo Design',
             'Implement signin feature to present app',
@@ -24,7 +24,7 @@ export const todoData = [
         isOpen: false,
     },
     {
-        title: 'Todo Tomorrow',
+        title: 'Tomorrow',
         details: [
             'Create Stripe account',
             'Register Present App on Google',
@@ -33,7 +33,7 @@ export const todoData = [
         isOpen: false,
     },
     {
-        title: 'Todo Today',
+        title: 'Today',
         details: [
             'Create Paystack account',
             'Do something here',
@@ -47,14 +47,14 @@ export const todoData = [
         details: [
             'Cache Files',
         ],
-        isOpen: true,
+        isOpen: false,
         addItem: false,
     },
     {
         title: 'Done',
         details: [
         ],
-        isOpen: true,
+        isOpen: false,
         addItem: false,
     },
 ];

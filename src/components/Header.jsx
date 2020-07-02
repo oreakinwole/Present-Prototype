@@ -26,6 +26,10 @@ const HeaderCon = styled.div`
             &:focus{
                 outline: none;
             }
+            &:nth-of-type(2) {
+                opacity: 0;
+                pointer-events: none;
+            }
         }
         h2 {
             @media(max-width: 360px) {

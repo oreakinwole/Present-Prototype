@@ -37,7 +37,7 @@ const Register = () => {
                 const { firstname, lastname } = getCurUserName(emailInput.current.value);
                 storeCurUser(`${firstname} ${lastname}`);
                 setSigningIn(false);
-                history.push('/profile');
+                history.push('/start');
             }
         }, 2000);
     };

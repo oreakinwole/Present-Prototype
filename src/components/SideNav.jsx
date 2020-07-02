@@ -12,7 +12,7 @@ const SideNavS = styled.aside`
     top: 0;
     height: 100vh;
     width: 60%;
-    background: black;
+    background: #20243f;
     z-index: 10;
     display: flex;
     flex-direction: column;
@@ -93,7 +93,7 @@ const SideNav = ({ open }) => {
     const direct = loc => history.push(loc);
     const doLogout = () => setTimeout(() => {
         removeCurUser();
-        history.push('/');
+        history.push('/home');
     }, 1000);
 
     return (
@@ -112,7 +112,7 @@ const SideNav = ({ open }) => {
             </header>
 
             <nav className="p-nav">
-                <p onClick={() => direct('/start')}>
+                {/* <p onClick={() => direct('/start')}>
                     <svg
                         width="20.105px"
                         height="17.04px"
@@ -122,19 +122,37 @@ const SideNav = ({ open }) => {
                         <polygon fill="#DE202C" points="18.726,34.29 0.103,34.29 0.103,28.61 17.441,28.61 " />
                     </svg>
                     START PRESENT
+                </p> */}
+                <p onClick={() => direct('/todoV2')}>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+                        <title>ionicons-v5-k</title>
+                        <path d="M428,224H288a48,48,0,0,1-48-48V36a4,4,0,0,0-4-4H144A64,64,0,0,0,80,96V416a64,64,0,0,0,64,64H368a64,
+                            64,0,0,0,64-64V228A4,4,0,0,0,428,224ZM336,384H176a16,16,0,0,1,0-32H336a16,16,0,0,1,0,32Zm0-80H176a16,16,0,0,1,0-32H336a16,16,0,0,1,0,32Z"
+                        />
+                        <path d="M419.22,188.59,275.41,44.78A2,2,0,0,0,272,46.19V176a16,16,0,0,0,16,16H417.81A2,2,0,0,0,419.22,188.59Z" />
+                    </svg>
+                    TO DO
                 </p>
                 <p onClick={() => direct('/profile')}>
+
                     <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-                        <title>ionicons-v5-j</title>
-                        <path
-                            d="M256,48C141.31,48,48,141.31,48,256s93.31,208,208,208,208-93.31,208-208S370.69,48,256,48ZM205.78,164.82C218.45,
-                                151.39,236.28,144,256,144s37.39,7.44,50.11,20.94C319,178.62,325.27,197,323.79,216.76,320.83,256,290.43,288,256,
-                                288s-64.89-32-67.79-71.25C186.74,196.83,193,178.39,205.78,164.82ZM256,432a175.49,175.49,0,0,1-126-53.22,122.91,
-                                122.91,0,0,1,35.14-33.44C190.63,329,222.89,320,256,320s65.37,9,90.83,25.34A122.87,122.87,0,0,1,382,378.78,175.45,
-                                175.45,0,0,1,256,432Z"
+                        <title>ionicons-v5-g</title>
+                        <path d="M368,192H352V112a96,96,0,1,0-192,0v80H144a64.07,64.07,0,0,0-64,64V432a64.07,64.07,0,0,0,64,64H368a64.07,
+                            64.07,0,0,0,64-64V256A64.07,64.07,0,0,0,368,192Zm-48,0H192V112a64,64,0,1,1,128,0Z"
                         />
                     </svg>
-                    MY ACCOUNT
+                    LOCKDOWN
+                </p>
+
+                <p onClick={() => direct('/meditate')}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+                        <title>ionicons-v5-c</title>
+                        <path d="M256,48C141.13,48,48,141.13,48,256s93.13,208,208,208,208-93.13,208-208S370.87,48,256,48Zm96,240H256a16,16,0,
+                            0,1-16-16V128a16,16,0,0,1,32,0V256h80a16,16,0,0,1,0,32Z"
+                        />
+                    </svg>
+                    MEDITATE
                 </p>
                 <p onClick={() => direct('/store')}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
@@ -174,17 +192,6 @@ const SideNav = ({ open }) => {
                     </svg>
                     FRIENDS
                 </p>
-                {/* <p onClick={() => direct('/todo')}>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-                        <title>ionicons-v5-k</title>
-                        <path d="M428,224H288a48,48,0,0,1-48-48V36a4,4,0,0,0-4-4H144A64,64,0,0,0,80,96V416a64,64,0,0,0,64,64H368a64,
-                        64,0,0,0,64-64V228A4,4,0,0,0,428,224ZM336,384H176a16,16,0,0,1,0-32H336a16,16,0,0,1,0,32Zm0-80H176a16,16,0,0,1,0-32H336a16,16,0,0,1,0,32Z"
-                        />
-                        <path d="M419.22,188.59,275.41,44.78A2,2,0,0,0,272,46.19V176a16,16,0,0,0,16,16H417.81A2,2,0,0,0,419.22,188.59Z" />
-                    </svg>
-                    TO DO
-                </p> */}
                 <p onClick={doLogout}>
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">

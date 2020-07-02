@@ -6,6 +6,9 @@ import {
 } from '../../../components/reusablestyles/GlobalStyle';
 import SideNav from '../../../components/SideNav';
 import bukkaHut from '../../../assets/Bh_logo.png';
+import kfcPack from '../../../assets/food1.png';
+import sCinema from '../../../assets/s_cinemas.jpg';
+import gCinema from '../../../assets/g_cinemas.png';
 
 const Row = styled.section`
     display: flex;
@@ -17,7 +20,6 @@ const Row = styled.section`
                     width: 90%;
                     height: 150px;
                     border-radius: 30px;
-                    background: #fff url(${bukkaHut}) no-repeat center;
                     cursor: pointer;
                     display: flex;
                     flex-direction: column-reverse;
@@ -38,6 +40,10 @@ const Row = styled.section`
                         }
                     }
                 }
+            .bukka {background: #fff url(${bukkaHut}) no-repeat center; background-size: cover;}
+            .jumia {background: #fff url(${kfcPack}) no-repeat center; background-size: cover;}
+            .scin {background: #fff url(${sCinema}) no-repeat center; background-size: cover;}
+            .gcin {background: #fff url(${gCinema}) no-repeat center; background-size: cover;}
                 h3{
                     width: 80%;
                     margin-top: 10px;
@@ -60,36 +66,36 @@ const Store = () => {
                 <h3>Food & Drinks</h3>
                 <Row>
                     <div className="fd-col">
-                        <div className="pic-div">
+                        <div className="pic-div bukka">
                             <div><p>10 / 100 points</p></div>
                         </div>
                         <h3>Free Drink with every Meal</h3>
                         <p>Bukka Hut</p>
                     </div>
                     <div className="fd-col">
-                        <div className="pic-div">
+                        <div className="pic-div jumia">
                             <div><p>10 / 100 points</p></div>
                         </div>
-                        <h3>Free Drink with every Meal</h3>
-                        <p>Bukka Hut</p>
+                        <h3>Free Cocacola with every Meal</h3>
+                        <p>Jumia Food</p>
                     </div>
                 </Row>
 
                 <h3>Movie Tickets</h3>
                 <Row>
                     <div className="fd-col">
-                        <div className="pic-div">
+                        <div className="pic-div scin">
                             <div><p>10 / 100 points</p></div>
                         </div>
                         <h3>Free Drink with every Meal</h3>
-                        <p>Bukka Hut</p>
+                        <p>Silverbird Cinemas</p>
                     </div>
                     <div className="fd-col">
-                        <div className="pic-div">
+                        <div className="pic-div gcin">
                             <div><p>10 / 100 points</p></div>
                         </div>
                         <h3>Free Drink with every Meal</h3>
-                        <p>Bukka Hut</p>
+                        <p>Genesis Cinemas</p>
                     </div>
                 </Row>
             </WidthWrapper>

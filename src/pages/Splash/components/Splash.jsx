@@ -16,6 +16,7 @@ const SplashWrapper = styled.div`
     color: white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
         @media (max-width: 360px) {
             padding: 50px 0px 0px;
@@ -39,7 +40,6 @@ const SplashWrapper = styled.div`
         }
         .controls-div {
             margin: 5% 0 10%;
-            cursor: pointer;
             display: flex;
                 div {
                     width: 15px;
@@ -49,15 +49,21 @@ const SplashWrapper = styled.div`
                     &:nth-of-type(2) {
                         margin: 0 10px;
                     }
+                    &:focus {
+                        outline: none;
+                    }
                 }
                 .med-ctrl {
                     background: ${({ isActive }) => (isActive === 0 ? 'white' : null)};
+                    cursor: pointer;
                 }
                 .prod-ctrl {
                     background: ${({ isActive }) => (isActive === 1 ? 'white' : null)};
+                    cursor: pointer;
                 }
                 .acc-ctrl {
                     background: ${({ isActive }) => (isActive === 2 ? 'white' : null)};
+                    cursor: pointer;
                 }
         }
         .next-div {
@@ -80,10 +86,7 @@ const Splash = () => {
             topDivIcon: speakerIcon,
             topDivIconAlt: 'loud',
             heading: 'meditation',
-            para: `Feeling anxious or stress? thoughts seemingly overwhelming you, take a step back and just breathe.
-            From the sounds of the beach, you long for or the gentle breeze of the wind as it caresses the oceans.
-            The present experience offers you the opportunity to meditate to soothing sounds in the background,
-            transforming your environment to one of peace and tranquillity.`,
+            para: 'Feeling anxious or stress? take a step back and just breathe with our unguided meditation.',
         },
         {
             bgCol: '#C750AB',
@@ -91,10 +94,7 @@ const Splash = () => {
             topDivIcon: clockIcon,
             topDivIconAlt: 'productivity',
             heading: 'productivity',
-            para: `Unable to deliver on the tasks you set out for the day? Always seem to forget to deliver on the important
-            tasks but doing the less important one? Our to-do list solves all of this by allowing to create a hierarchy for your
-            tasks, your to-do today, your to-do tomorrow etc. The present experience offers you the opportunity to improve your
-            productivity thereby affording you more time to do what is most important to you.`,
+            para: 'Unable to deliver on the tasks you set out for the day? Say goodbye to unproductive days with our to do list.',
         },
         {
             bgCol: '#E01E27',
@@ -102,11 +102,7 @@ const Splash = () => {
             topDivIcon: accountIcon,
             topDivIconAlt: 'accountability',
             heading: 'accountability',
-            para: `Constantly distracted by social media? Can’t seem to leave your phone and concentrate while working or studying?
-            Our lockdown option allows you to lock your phone from the internet for a period of time (20 mins to 2 hours) allowing
-            you to concentrate on work and reduce distraction from social media or the internet. The present experience offers you
-            the opportunity to improve your efficiency and quality of work by keeping away distractions, giving you the platform to
-            deliver the consistently high level of quality that you are capable of delivering.`,
+            para: 'Can’t seem to leave your phone and concentrate while working? Now a thing of the past with Our lockdown option.',
         },
     ]);
     let [current, setCurrent] = useState(0);
@@ -115,6 +111,10 @@ const Splash = () => {
     const doNext = e => {
         if (((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && current !== 2) setCurrent(current += 1);
         else if (current === 2) history.push('/home');
+    };
+
+    const forceNext = (e, currentInd) => {
+        if ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) setCurrent(currentInd);
     };
 
     return (
@@ -126,11 +126,34 @@ const Splash = () => {
                 <h2>{splashDetails[current].heading}</h2>
                 <p>{splashDetails[current].para}</p>
                 <div className="controls-div">
-                    <div className="med-ctrl" />
-                    <div className="prod-ctrl" />
-                    <div className="acc-ctrl" />
+                    <div
+                        className="med-ctrl"
+                        onClick={e => forceNext(e, 0)}
+                        onKeyPress={e => forceNext(e, 0)}
+                        role="button"
+                        tabIndex="0"
+                        aria-label="med-ctrl"
+                    />
+
+                    <div
+                        className="prod-ctrl"
+                        onClick={e => forceNext(e, 1)}
+                        onKeyPress={e => forceNext(e, 1)}
+                        role="button"
+                        tabIndex="0"
+                        aria-label="prod-ctrl"
+                    />
+
+                    <div
+                        className="acc-ctrl"
+                        onClick={e => forceNext(e, 2)}
+                        onKeyPress={e => forceNext(e, 2)}
+                        role="button"
+                        tabIndex="0"
+                        aria-label="acc-ctrl"
+                    />
                 </div>
-                <div className="next-div" onClick={doNext} onKeyPress={doNext} role="button" tabIndex={0}>
+                <div className="next-div" onClick={doNext} onKeyPress={doNext} role="button" tabIndex="0">
                     <img src={nextIcon} alt="next" />
                 </div>
             </SplashWrapper>

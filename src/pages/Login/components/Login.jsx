@@ -32,7 +32,7 @@ const Login = () => {
                 const { firstname, lastname } = getCurUserName(emailInput.current.value);
                 storeCurUser(`${firstname} ${lastname}`);
                 setIsLogginIn(false);
-                history.push('/start');
+                history.push('/profile');
             }
         }, 2000);
     };
@@ -55,6 +55,9 @@ const Login = () => {
                     </RegSubmitBtn>
                     <p>
                         <Link style={{ color: '#fff', marginLeft: '30%' }} to="/register">Click here to Sign Up</Link>
+                    </p>
+                    <p>
+                        <Link style={{ color: '#fff', marginLeft: '35%', fontSize: '14px' }} to="/login">Forgot Password?</Link>
                     </p>
                 </RegForm>
 

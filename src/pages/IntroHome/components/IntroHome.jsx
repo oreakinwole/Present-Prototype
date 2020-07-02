@@ -84,7 +84,9 @@ const IntroHome = () => (
             </LogoDiv>
             <CaptionPara>
                 The Present App rewards you with
+                {' '}
                 <span>points</span>
+                {' '}
                 as you participate and successfully navigate through the present experience.
             </CaptionPara>
             <div className="body-divs">

@@ -68,10 +68,9 @@ const Start = () => (
         <StartWrapper>
             <header>
                 <h2>
-                    what you can do &nbsp;
-                    <u>w</u>
-                    ith
-                    present
+                    Welcome to the &nbsp;
+                    <u>P</u>
+                    resent experience
                 </h2>
 
             </header>

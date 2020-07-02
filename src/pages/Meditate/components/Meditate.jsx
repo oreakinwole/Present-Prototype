@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
 import Header from '../../../components/Header';
+import { LayoutWrapper } from '../../../components/reusablestyles/GlobalStyle';
 import {
-    LayoutWrapper, WidthWrapperCenter
-} from '../../../components/reusablestyles/GlobalStyle';
-import {
+    WidthWrapperCenterMedi,
     StartCircle,
     RangeBar,
     PointsIndictor,
@@ -50,7 +49,7 @@ const Meditate = () => {
             <SideNav open={sidebarOpen} />
             <Header toggleSB={toggleSbOnKeypress} title={retrieveCurUser()} />
 
-            <WidthWrapperCenter onClick={() => setSidebarOpen(false)}>
+            <WidthWrapperCenterMedi onClick={() => setSidebarOpen(false)}>
                 <StartCircle onClick={() => song.current.play()}><p>{!medTime ? 'Click Here To Start' : medTime}</p></StartCircle>
                 <audio onTimeUpdate={doTimeUpdate} ref={song}>
                     <track kind="captions" />
@@ -70,7 +69,7 @@ const Meditate = () => {
                     </p>
                 )}
                 {songPlaying && (<CancelIndicator onClick={doStopMusic}><p> X </p></CancelIndicator>)}
-            </WidthWrapperCenter>
+            </WidthWrapperCenterMedi>
 
         </LayoutWrapper>
     );

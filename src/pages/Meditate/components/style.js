@@ -1,10 +1,25 @@
 import styled from 'styled-components';
+import calmImg from '../../../assets/calm_img2.jpg';
+
+const WidthWrapperCenterMedi = styled.div`
+    color: white;
+    background: #263a79 url(${calmImg}) no-repeat center;
+    background-size: cover;
+    padding-top: 100px;
+    max-width: 500px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
 
 const StartCircle = styled.div`
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    border: 1px solid #3C56A8;
+    border: 1px solid #fff;
     font-size: 2em;
     font-weight: lighter;
     display: flex;
@@ -46,9 +61,12 @@ const CancelIndicator = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+    position: absolute;
+    bottom: 4%;
 `;
 
 export {
+    WidthWrapperCenterMedi,
     StartCircle,
     RangeBar,
     PointsIndictor,

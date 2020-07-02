@@ -19,7 +19,7 @@ const Profile = () => {
     return (
         <LayoutWrapper>
             <SideNav open={sidebarOpen} />
-            <Header toggleSB={toggleSbOnKeypress} title="Profile" />
+            <Header toggleSB={toggleSbOnKeypress} title="My Account" />
             <WidthWrapper onClick={() => setSidebarOpen(false)}>
                 <DetailsHeader>
                     <div />
