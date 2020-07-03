@@ -49,20 +49,33 @@ const PointsIndictor = styled.p`
     font-size: 1.8em;
 `;
 
-const CancelIndicator = styled.div`
-    width: 60px;
-    height: 60px;
-    border: 1px solid rgba(0, 192, 244, 0.20);
-    text-align: center;
-    border-radius: 50%;
-    font-size: 2em;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+const SoundControls = styled.div`
     position: absolute;
-    bottom: 4%;
+    bottom: 5%;
+    display: flex;
+    justify-content: space-evenly;
+        div {
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(0, 192, 244, 0.20);
+            text-align: center;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 2em;
+            margin: 0 10px;
+            svg{
+                max-width: 20px;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        @media(max-width: 375px) {
+            bottom: 10px;
+        }
 `;
 
 export {
@@ -70,5 +83,5 @@ export {
     StartCircle,
     RangeBar,
     PointsIndictor,
-    CancelIndicator
+    SoundControls
 };

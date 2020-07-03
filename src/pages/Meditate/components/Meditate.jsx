@@ -6,7 +6,7 @@ import {
     StartCircle,
     RangeBar,
     PointsIndictor,
-    CancelIndicator
+    SoundControls
 } from './style';
 
 import SideNav from '../../../components/SideNav';
@@ -23,25 +23,41 @@ const Meditate = () => {
     const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
 
     const doTimeUpdate = () => {
-        setSongPlaying(true);
-        const fakeDuration = 600;
-        const { currentTime } = song.current;
+        const fakeDuration = 180;
+        let { currentTime } = song.current;
         const elapsed = fakeDuration - currentTime;
         const seconds = Math.floor(elapsed % 60);
         const minutes = Math.floor(elapsed / 60);
         setMedTime(`${minutes}:${seconds}`);
 
-        if (seconds % 10 === 0) {
+        if (seconds % 10 === 0 && !song.current.paused) {
             const newPoint = currentPoints + 10;
             setTimeout(() => {
                 setCurrentPoints(newPoint);
             }, 1000);
         }
+
+        if (currentTime >= fakeDuration) {
+            song.current.pause();
+            currentTime = 0;
+        }
     };
 
-    const doStopMusic = () => {
-        song.current.pause();
-        setMedTime('0:0');
+    const checkPlaying = e => {
+        if ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) {
+            if (song.current.paused) {
+                song.current.play();
+            } else {
+                song.current.pause();
+                setSongPlaying(false);
+            }
+        }
+    };
+
+    const restart = e => {
+        if ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) {
+            song.current.currentTime = 0;
+        }
     };
 
     return (
@@ -50,8 +66,8 @@ const Meditate = () => {
             <Header toggleSB={toggleSbOnKeypress} title={retrieveCurUser()} />
 
             <WidthWrapperCenterMedi onClick={() => setSidebarOpen(false)}>
-                <StartCircle onClick={() => song.current.play()}><p>{!medTime ? 'Click Here To Start' : medTime}</p></StartCircle>
-                <audio onTimeUpdate={doTimeUpdate} ref={song}>
+                <StartCircle onClick={checkPlaying}><p>{!medTime ? 'Click Here To Start' : medTime}</p></StartCircle>
+                <audio onTimeUpdate={doTimeUpdate} onPlaying={() => setSongPlaying(true)} ref={song}>
                     <track kind="captions" />
                     <source src={MedSong} />
                 </audio>
@@ -68,7 +84,45 @@ const Meditate = () => {
                         Focus! if you want more
                     </p>
                 )}
-                {songPlaying && (<CancelIndicator onClick={doStopMusic}><p> X </p></CancelIndicator>)}
+
+                {
+                    medTime
+                    && (
+                        <SoundControls>
+                            <div
+                                className="pp"
+                                role="button"
+                                onClick={checkPlaying}
+                                onKeyPress={checkPlaying}
+                                tabIndex={0}
+                            >
+                                { songPlaying ? (
+                                    <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="30" height="90" fill="white" />
+                                        <rect x="60" width="30" height="90" fill="white" />
+                                    </svg>
+
+                                )
+                                    : (
+                                        <svg width="90" height="90" viewBox="0 0 68 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M68 39L0.499996 77.9711L0.5 0.0288552L68 39Z" fill="white" />
+                                        </svg>
+
+                                    )}
+
+                            </div>
+                            <div
+                                className="replay"
+                                role="button"
+                                onClick={restart}
+                                onKeyPress={restart}
+                                tabIndex={0}
+                            >
+                                <p role="img" aria-label="replay"> ⟲ </p>
+                            </div>
+                        </SoundControls>
+                    )
+                }
             </WidthWrapperCenterMedi>
 
         </LayoutWrapper>
