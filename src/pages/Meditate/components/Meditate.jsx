@@ -41,6 +41,7 @@ const Meditate = () => {
 
         if (currentTime >= fakeDuration) {
             song.current.pause();
+            setSongPlaying(false);
             currentTime = 0;
         }
     };
@@ -58,6 +59,8 @@ const Meditate = () => {
 
     const restart = e => {
         if ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) {
+            song.current.pause(); // not neccesary here but fixed a bug in which when replay is clicked whille song is playing, it add points for the user, which shouldn't be the case
+            setSongPlaying(false);
             song.current.currentTime = 0;
         }
     };
