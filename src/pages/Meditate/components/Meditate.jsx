@@ -6,7 +6,8 @@ import {
     StartCircle,
     RangeBar,
     PointsIndictor,
-    SoundControls
+    SoundControls,
+    Modal
 } from './style';
 
 import SideNav from '../../../components/SideNav';
@@ -19,11 +20,12 @@ const Meditate = () => {
     const song = useRef(null);
     const [songPlaying, setSongPlaying] = useState(false);
     const [currentPoints, setCurrentPoints] = useState(0);
+    const [fakeDuration, setFakeDuration] = useState(300);
+    const [modalOpen, setModalOpen] = useState(false);
 
     const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
 
     const doTimeUpdate = () => {
-        const fakeDuration = 180;
         let { currentTime } = song.current;
         const elapsed = fakeDuration - currentTime;
         const seconds = Math.floor(elapsed % 60);
@@ -60,13 +62,44 @@ const Meditate = () => {
         }
     };
 
+    const toggleModal = e => {
+        if ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) setModalOpen(!modalOpen);
+    };
+
+    const doSetFakeDuration = (e, val) => {
+        if ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) {
+            setFakeDuration(val);
+            song.current.currentTime = 0;
+        }
+    };
+
     return (
         <LayoutWrapper>
             <SideNav open={sidebarOpen} />
             <Header toggleSB={toggleSbOnKeypress} title={retrieveCurUser()} />
+            {modalOpen && (
+                <Modal>
+                    <form>
+                        <label>
+                            <input type="radio" name="timelength" onClick={e => doSetFakeDuration(e, 300)} onKeyPress={e => doSetFakeDuration(e, 300)} />
+                            5 Minutes
+                        </label>
+                        <label>
+                            <input type="radio" name="timelength" onClick={e => doSetFakeDuration(e, 900)} onKeyPress={e => doSetFakeDuration(e, 900)} />
+                            15 Minutes
+                        </label>
+                        <label>
+                            <input type="radio" name="timelength" onClick={e => doSetFakeDuration(e, 1800)} onKeyPress={e => doSetFakeDuration(e, 1800)} />
+                            30 Minutes
+                        </label>
+                        {/* <button type="submit" name="submit">✔</button> */}
+                    </form>
+                </Modal>
+            )}
 
             <WidthWrapperCenterMedi onClick={() => setSidebarOpen(false)}>
-                <StartCircle onClick={checkPlaying}><p>{!medTime ? 'Click Here To Start' : medTime}</p></StartCircle>
+                {/* eslint-disable-next-line no-nested-ternary */}
+                <StartCircle onClick={checkPlaying}><p>{!medTime ? 'Click Here To Start' : modalOpen ? null : medTime}</p></StartCircle>
                 <audio onTimeUpdate={doTimeUpdate} onPlaying={() => setSongPlaying(true)} ref={song}>
                     <track kind="captions" />
                     <source src={MedSong} />
@@ -111,6 +144,7 @@ const Meditate = () => {
                                     )}
 
                             </div>
+
                             <div
                                 className="replay"
                                 role="button"
@@ -119,6 +153,18 @@ const Meditate = () => {
                                 tabIndex={0}
                             >
                                 <p role="img" aria-label="replay"> ⟲ </p>
+                            </div>
+                            <div
+                                className="setting"
+                                role="button"
+                                onClick={toggleModal}
+                                onKeyPress={toggleModal}
+                                tabIndex={0}
+                            >
+                                <p role="img" aria-label="setting">
+                                    {modalOpen ? '×' : '⚙'}
+                                </p>
+
                             </div>
                         </SoundControls>
                     )

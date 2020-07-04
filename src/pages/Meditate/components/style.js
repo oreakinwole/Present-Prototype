@@ -64,8 +64,9 @@ const SoundControls = styled.div`
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            font-size: 2em;
+            font-size: 2.2em;
             margin: 0 10px;
+            text-align: center;
             svg{
                 max-width: 20px;
             }
@@ -73,15 +74,49 @@ const SoundControls = styled.div`
                 outline: none;
             }
         }
+        .setting {
+            align-self: flex-end;
+        }
         @media(max-width: 375px) {
             bottom: 10px;
         }
 `;
 
+const Modal = styled.div`
+    position: absolute;
+    top: 45%;
+    padding: 10px 0;
+    color: white;
+    border-bottom: 1px solid white;
+    background: rgba(0, 192, 244, 0.2);
+    border-radius: 20px;
+    padding: 5px; 10px;
+     form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        input {
+            margin-right: 5px;
+
+        }
+        button {
+            background: #3C56A8;
+            outline: none;
+            border: none;
+            border-radius: 10%;
+            cursor: pointer;
+            align-self: center;
+            margin-top: 15px;
+            color: white;
+        }
+     }
+`;
 export {
     WidthWrapperCenterMedi,
     StartCircle,
     RangeBar,
     PointsIndictor,
-    SoundControls
+    SoundControls,
+    Modal
 };
