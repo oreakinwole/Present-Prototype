@@ -1,6 +1,6 @@
 export const usersData = [
     {
-        firstname: 'Ore', lastname: 'Akinwole', email: 'todamilor@gmail.com', password: 'damid509',
+        firstname: 'Damilola', lastname: 'Banji-Alabi', email: 'todamilor@gmail.com', password: 'damid509',
     },
     {
         firstname: 'Atlas', lastname: 'Admin', email: 'admin@atlascc.com.ng', password: 'atlas',

@@ -35,6 +35,7 @@ const SideNavS = styled.aside`
                 .p-detail{
                     font-size: 20px;
                     color: #ebebeb;
+                    text-align: center;
                         .location{
                             font-size: .7em;
                             color: #c4c4c4;
@@ -44,7 +45,7 @@ const SideNavS = styled.aside`
                                 }
                         }
                 }
-                @media(max-width: 360px) {
+                @media(max-width: 576px) {
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
