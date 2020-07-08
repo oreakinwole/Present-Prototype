@@ -28,7 +28,7 @@ const StartCircle = styled.div`
     align-items: center;
     padding: 0px 80px;
     text-align: center;
-    cursor: pointer;
+    // cursor: pointer;
     @media (max-width: 360px) {
         width: 250px;
         height: 250px;
@@ -113,7 +113,7 @@ const Modal = styled.div`
 `;
 const GreatStart = styled.div`
     position: absolute;
-    top: 30%;
+    top: 40%;
     width: 300px;
     background: white;
     border-radius: 30px;
@@ -122,7 +122,7 @@ const GreatStart = styled.div`
     padding: 20px 0;
 
         .pointsno {
-            margin: 0;
+            margin: 0 0 10px;
             color: #db1c2e;
             font-size: 3em;
             font-weight: bolder;

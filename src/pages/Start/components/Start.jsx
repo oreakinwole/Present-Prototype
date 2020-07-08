@@ -5,7 +5,7 @@ import { LayoutWrapper } from '../../../components/reusablestyles/GlobalStyle';
 import headphoneIcon from '../../../assets/headphone.svg';
 import todoIcon from '../../../assets/todo.svg';
 import lockIcon from '../../../assets/locked.svg';
-import nextIcon from '../../../assets/next.png';
+// import nextIcon from '../../../assets/next.png';
 
 const StartWrapper = styled.div`
     background: #2D4B97;
@@ -93,9 +93,9 @@ const Start = () => (
             </div>
             <h3>lock your phone for a period</h3>
 
-            <div className="next-div">
+            {/* <div className="next-div">
                 <Link to="/profile"><img src={nextIcon} alt="next" /></Link>
-            </div>
+            </div> */}
         </StartWrapper>
     </LayoutWrapper>
 );

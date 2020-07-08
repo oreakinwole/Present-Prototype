@@ -18,7 +18,7 @@ import { retrieveCurUser } from '../../../utility';
 
 const Meditate = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [medTime, setMedTime] = useState(null);
+    const [medTime, setMedTime] = useState('5:0');
     const song = useRef(null);
     const [songPlaying, setSongPlaying] = useState(false);
     const [currentPoints, setCurrentPoints] = useState(0);
@@ -48,7 +48,7 @@ const Meditate = () => {
             currentTime = 0;
         }
 
-        if (currentPoints === 10 && seconds === 47) {
+        if (currentPoints === 10 && seconds === 48) {
             setOpenGreatStart(true);
             setTimeout(() => setOpenGreatStart(false), 5000);
         }
@@ -98,10 +98,10 @@ const Meditate = () => {
                         <br />
                         Points
                     </p>
-                    <p>50 Minutes</p>
+                    {/* <p>50 Minutes</p>
                     <button type="button" onClick={restart}>
                         <p> Start Over </p>
-                    </button>
+                    </button> */}
 
                     <Link to="/store">
                         <p> Visit Store </p>
@@ -130,7 +130,7 @@ const Meditate = () => {
 
             <WidthWrapperCenterMedi onClick={() => setSidebarOpen(false)}>
                 {/* eslint-disable-next-line no-nested-ternary */}
-                <StartCircle onClick={checkPlaying}><p>{!medTime ? 'Click Here To Start' : modalOpen ? null : medTime}</p></StartCircle>
+                <StartCircle><p>{modalOpen ? null : medTime}</p></StartCircle>
                 <audio onTimeUpdate={doTimeUpdate} onPlaying={() => setSongPlaying(true)} ref={song}>
                     <track kind="captions" />
                     <source src={MedSong} />
@@ -149,57 +149,52 @@ const Meditate = () => {
                     </p>
                 )}
 
-                {
-                    medTime
-                    && (
-                        <SoundControls>
-                            <div
-                                className="pp"
-                                role="button"
-                                onClick={checkPlaying}
-                                onKeyPress={checkPlaying}
-                                tabIndex={0}
-                            >
-                                { songPlaying ? (
-                                    <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="30" height="90" fill="white" />
-                                        <rect x="60" width="30" height="90" fill="white" />
-                                    </svg>
+                <SoundControls>
+                    <div
+                        className="pp"
+                        role="button"
+                        onClick={checkPlaying}
+                        onKeyPress={checkPlaying}
+                        tabIndex={0}
+                    >
+                        { songPlaying ? (
+                            <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="90" fill="white" />
+                                <rect x="60" width="30" height="90" fill="white" />
+                            </svg>
 
-                                )
-                                    : (
-                                        <svg width="90" height="90" viewBox="0 0 68 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M68 39L0.499996 77.9711L0.5 0.0288552L68 39Z" fill="white" />
-                                        </svg>
+                        )
+                            : (
+                                <svg width="90" height="90" viewBox="0 0 68 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M68 39L0.499996 77.9711L0.5 0.0288552L68 39Z" fill="white" />
+                                </svg>
 
-                                    )}
+                            )}
 
-                            </div>
+                    </div>
 
-                            <div
-                                className="replay"
-                                role="button"
-                                onClick={restart}
-                                onKeyPress={restart}
-                                tabIndex={0}
-                            >
-                                <p role="img" aria-label="replay"> ⟲ </p>
-                            </div>
-                            <div
-                                className="setting"
-                                role="button"
-                                onClick={toggleModal}
-                                onKeyPress={toggleModal}
-                                tabIndex={0}
-                            >
-                                <p role="img" aria-label="setting">
-                                    {modalOpen ? '×' : '⚙'}
-                                </p>
+                    <div
+                        className="replay"
+                        role="button"
+                        onClick={restart}
+                        onKeyPress={restart}
+                        tabIndex={0}
+                    >
+                        <p role="img" aria-label="replay"> ⟲ </p>
+                    </div>
+                    <div
+                        className="setting"
+                        role="button"
+                        onClick={toggleModal}
+                        onKeyPress={toggleModal}
+                        tabIndex={0}
+                    >
+                        <p role="img" aria-label="setting">
+                            {modalOpen ? '×' : '⚙'}
+                        </p>
 
-                            </div>
-                        </SoundControls>
-                    )
-                }
+                    </div>
+                </SoundControls>
             </WidthWrapperCenterMedi>
 
         </LayoutWrapper>
