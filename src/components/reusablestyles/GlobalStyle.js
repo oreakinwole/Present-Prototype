@@ -23,6 +23,7 @@ const WidthWrapperNoH = styled.div`
     background-color: #263a79;
     padding: 100px 40px 20px;
     max-width: 500px;
+    min-height: 100vh;
     width: 100%;
     color: white;
     @media (max-width: 360px) {
