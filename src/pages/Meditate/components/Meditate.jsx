@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../../../components/Header';
 import { LayoutWrapper } from '../../../components/reusablestyles/GlobalStyle';
 import {
@@ -7,7 +8,8 @@ import {
     RangeBar,
     PointsIndictor,
     SoundControls,
-    Modal
+    Modal,
+    GreatStart
 } from './style';
 
 import SideNav from '../../../components/SideNav';
@@ -22,6 +24,7 @@ const Meditate = () => {
     const [currentPoints, setCurrentPoints] = useState(0);
     const [fakeDuration, setFakeDuration] = useState(300);
     const [modalOpen, setModalOpen] = useState(false);
+    const [openGreatStart, setOpenGreatStart] = useState(false);
 
     const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
 
@@ -44,6 +47,11 @@ const Meditate = () => {
             setSongPlaying(false);
             currentTime = 0;
         }
+
+        if (currentPoints === 10 && seconds === 47) {
+            setOpenGreatStart(true);
+            setTimeout(() => setOpenGreatStart(false), 5000);
+        }
     };
 
     const checkPlaying = e => {
@@ -62,6 +70,8 @@ const Meditate = () => {
             song.current.pause(); // not neccesary here but fixed a bug in which when replay is clicked whille song is playing, it add points for the user, which shouldn't be the case
             setSongPlaying(false);
             song.current.currentTime = 0;
+            setOpenGreatStart(false);
+            setCurrentPoints(0);
         }
     };
 
@@ -80,6 +90,24 @@ const Meditate = () => {
         <LayoutWrapper>
             <SideNav open={sidebarOpen} />
             <Header toggleSB={toggleSbOnKeypress} title={retrieveCurUser()} />
+            {openGreatStart && (
+                <GreatStart>
+                    <h2>Great Start!</h2>
+                    <p className="pointsno">
+                        10
+                        <br />
+                        Points
+                    </p>
+                    <p>50 Minutes</p>
+                    <button type="button" onClick={restart}>
+                        <p> Start Over </p>
+                    </button>
+
+                    <Link to="/store">
+                        <p> Visit Store </p>
+                    </Link>
+                </GreatStart>
+            )}
             {modalOpen && (
                 <Modal>
                     <form>

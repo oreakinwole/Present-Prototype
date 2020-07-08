@@ -85,12 +85,11 @@ const SoundControls = styled.div`
 const Modal = styled.div`
     position: absolute;
     top: 45%;
-    padding: 10px 0;
+    padding: 10px;
     color: white;
     border-bottom: 1px solid white;
     background: rgba(0, 192, 244, 0.2);
     border-radius: 20px;
-    padding: 5px; 10px;
      form {
         display: flex;
         flex-direction: column;
@@ -112,11 +111,62 @@ const Modal = styled.div`
         }
      }
 `;
+const GreatStart = styled.div`
+    position: absolute;
+    top: 30%;
+    width: 300px;
+    background: white;
+    border-radius: 30px;
+    color: #263a79;
+    text-align: center;
+    padding: 20px 0;
+
+        .pointsno {
+            margin: 0;
+            color: #db1c2e;
+            font-size: 3em;
+            font-weight: bolder;
+        }
+        h2 {
+            margin: 0;
+        }
+
+        button {
+            background: #263a79;
+            border: none;
+            border-radius: 30px;
+            font-size: .8em;
+            width: 70%;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 10px;
+            outline:none;
+        }
+
+        a {
+            cursor: pointer;
+            text-decoration: none;
+                p{
+                    margin: 0 auto;
+                    border: none;
+                    border-radius: 30px;
+                    font-size: .8em;
+                    width: 70%;
+                    padding: 15px 0;
+                    color: #263a79;
+                    background: #d2d2d2;
+                }
+                &:focus{
+                    outline:none;
+                }
+        }
+`;
 export {
     WidthWrapperCenterMedi,
     StartCircle,
     RangeBar,
     PointsIndictor,
     SoundControls,
-    Modal
+    Modal,
+    GreatStart
 };
