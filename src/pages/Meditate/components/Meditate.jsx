@@ -48,7 +48,7 @@ const Meditate = () => {
             currentTime = 0;
         }
 
-        if (currentPoints === 10 && seconds === 47) {
+        if (currentPoints === 10 && seconds === 48) {
             setOpenGreatStart(true);
             setTimeout(() => setOpenGreatStart(false), 5000);
         }
@@ -98,10 +98,10 @@ const Meditate = () => {
                         <br />
                         Points
                     </p>
-                    <p>50 Minutes</p>
+                    {/* <p>50 Minutes</p>
                     <button type="button" onClick={restart}>
                         <p> Start Over </p>
-                    </button>
+                    </button> */}
 
                     <Link to="/store">
                         <p> Visit Store </p>
