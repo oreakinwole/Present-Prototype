@@ -28,7 +28,6 @@ const StartCircle = styled.div`
     align-items: center;
     padding: 0px 80px;
     text-align: center;
-    // cursor: pointer;
     @media (max-width: 360px) {
         width: 250px;
         height: 250px;
@@ -42,6 +41,12 @@ const RangeBar = styled.div`
     border-radius: 20px;
     height: 12px;
     width: 90%;
+        div {
+            border-radius: 20px;
+            background: white;
+            width: ${({ musicProgress }) => (musicProgress > 0) && `${musicProgress}%`};
+            height: 100%;
+        }
 `;
 
 const PointsIndictor = styled.p`

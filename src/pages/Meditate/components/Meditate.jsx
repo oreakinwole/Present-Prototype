@@ -25,15 +25,18 @@ const Meditate = () => {
     const [fakeDuration, setFakeDuration] = useState(300);
     const [modalOpen, setModalOpen] = useState(false);
     const [openGreatStart, setOpenGreatStart] = useState(false);
+    const [musicProgress, setMusicProgress] = useState(null);
 
     const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
 
     const doTimeUpdate = () => {
-        let { currentTime } = song.current;
+        const { currentTime } = song.current;
         const elapsed = fakeDuration - currentTime;
         const seconds = Math.floor(elapsed % 60);
         const minutes = Math.floor(elapsed / 60);
         setMedTime(`${minutes}:${seconds}`);
+
+        setMusicProgress(((Math.trunc(currentTime)) / fakeDuration).toFixed(2) * 100);
 
         if (seconds % 10 === 0 && !song.current.paused) {
             const newPoint = currentPoints + 10;
@@ -44,8 +47,8 @@ const Meditate = () => {
 
         if (currentTime >= fakeDuration) {
             song.current.pause();
+            song.current.currentTime = 0;
             setSongPlaying(false);
-            currentTime = 0;
         }
 
         if (currentPoints === 10 && seconds === 48) {
@@ -135,7 +138,10 @@ const Meditate = () => {
                     <track kind="captions" />
                     <source src={MedSong} />
                 </audio>
-                <RangeBar />
+
+                <RangeBar musicProgress={musicProgress}>
+                    {(musicProgress > 0) && (<div />)}
+                </RangeBar>
 
                 <PointsIndictor>{`${currentPoints} Points`}</PointsIndictor>
                 {currentPoints > 0 && (
@@ -190,7 +196,7 @@ const Meditate = () => {
                         tabIndex={0}
                     >
                         <p role="img" aria-label="setting">
-                            {modalOpen ? '×' : '⚙'}
+                            {modalOpen ? '×' : '🕛'}
                         </p>
 
                     </div>
