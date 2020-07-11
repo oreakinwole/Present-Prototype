@@ -8,7 +8,7 @@ import accountIcon from '../../../assets/acc_icon.svg';
 import nextIcon from '../../../assets/next.png';
 
 const SplashWrapper = styled.div`
-    background: ${({ bgColor }) => bgColor};
+    background: ${({ bgLtColor, bgRtColor }) => `linear-gradient(120deg, ${bgRtColor}, ${bgLtColor})`};
     padding: 50px 0px 0px;
     max-width: 500px;
     width: 100%;
@@ -69,19 +69,25 @@ const SplashWrapper = styled.div`
         .next-div {
             width: 70px;
             cursor: pointer;
-            img {
-                width: 100%;
-            }
-            &:focus {
-                outline: none;
-            }
+            transition: all .3s;
+                img {
+                    width: 100%;
+                }
+                &:focus {
+                    outline: none;
+                }
+                &:hover {
+                    transform: scale(1.06);
+                }
         }
 `;
 
 const Splash = () => {
     const [splashDetails] = useState([
         {
-            bgCol: '#2D4B97',
+            bgLtColor: '#2D4B97',
+            // bgLtColor: '#fff',
+            bgRtColor: '#1E49B2',
             topDivBorderCol: '#A9C1FC',
             topDivIcon: speakerIcon,
             topDivIconAlt: 'loud',
@@ -89,7 +95,8 @@ const Splash = () => {
             para: 'Feeling anxious or stress? take a step back and just breathe with our unguided meditation.',
         },
         {
-            bgCol: '#C750AB',
+            bgLtColor: '#C750AB',
+            bgRtColor: '#EE70D0',
             topDivBorderCol: '#EE70D0',
             topDivIcon: clockIcon,
             topDivIconAlt: 'productivity',
@@ -97,7 +104,8 @@ const Splash = () => {
             para: 'Unable to deliver on the tasks you set out for the day? Say goodbye to unproductive days with our to do list.',
         },
         {
-            bgCol: '#E01E27',
+            bgLtColor: '#E01E27',
+            bgRtColor: '#E93941',
             topDivBorderCol: '#FFACB0',
             topDivIcon: accountIcon,
             topDivIconAlt: 'accountability',
@@ -119,7 +127,12 @@ const Splash = () => {
 
     return (
         <LayoutWrapper>
-            <SplashWrapper bgColor={splashDetails[current].bgCol} bdColor={splashDetails[current].topDivBorderCol} isActive={current}>
+            <SplashWrapper
+                bgLtColor={splashDetails[current].bgLtColor}
+                bgRtColor={splashDetails[current].bgRtColor}
+                bdColor={splashDetails[current].topDivBorderCol}
+                isActive={current}
+            >
                 <div className="top-div">
                     <img src={splashDetails[current].topDivIcon} alt={splashDetails[current].topDivIconAlt} />
                 </div>

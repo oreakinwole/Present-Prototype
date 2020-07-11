@@ -32,13 +32,18 @@ const WidthWrapperNoBg = styled.div`
                         border: none;
                         cursor: pointer;
                         text-decoration: none;
-                        background-color: #6A52B8;
+                        background: #6A52B8;
+                        background: linear-gradient(120deg, #7D63D4, #604BA7);
                         border-radius: 30px;
                         color: white;
                         padding: 10px 30px;
                         font-weight: bolder;
+                        transition: all .3s;
                         &:focus{
                             outline:none;
+                        }
+                        &:hover {
+                            transform: scale(.9);
                         }
 
                     }

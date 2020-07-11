@@ -74,6 +74,16 @@ const SoundControls = styled.div`
             text-align: center;
             svg{
                 max-width: 20px;
+                transition: all .1s;
+                &:hover{
+                    transform: scale(1.2);
+                }
+            }
+            p{
+                transition: all .1s;
+                &:hover{
+                    transform: scale(1.2);
+                }
             }
             &:focus {
                 outline: none;
