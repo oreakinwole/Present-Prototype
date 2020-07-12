@@ -13,6 +13,9 @@ const WidthWrapperCenterMedi = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @media(max-width: 375px) {
+        padding-top: 50px;
+    }
 `;
 
 const StartCircle = styled.div`
@@ -56,44 +59,51 @@ const PointsIndictor = styled.p`
 
 const SoundControls = styled.div`
     position: absolute;
-    bottom: 5%;
+    bottom: 2%;
     display: flex;
     justify-content: space-evenly;
+    // background: black;
         div {
-            width: 60px;
-            height: 60px;
-            border: 1px solid rgba(0, 192, 244, 0.20);
-            text-align: center;
-            border-radius: 50%;
+            // background: red;
+            width: 80px;
+            height: 80px;
+            // border: 1px solid rgba(0, 192, 244, 0.20);
+            // border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            font-size: 2.2em;
             margin: 0 10px;
             text-align: center;
             svg{
-                max-width: 20px;
+                width: 70%;
+                fill: white;
                 transition: all .1s;
                 &:hover{
                     transform: scale(1.2);
                 }
             }
             p{
+                font-size: 3em;
                 transition: all .1s;
                 &:hover{
                     transform: scale(1.2);
                 }
+                @media(max-width: 375px) {
+                    font-size: 2.3em;
+                }
+
             }
             &:focus {
                 outline: none;
             }
+            @media(max-width: 375px) {
+                width: 50px;
+                height: 50px;
+            }
         }
-        .setting {
-            align-self: flex-end;
-        }
-        @media(max-width: 375px) {
-            bottom: 10px;
+        .pp svg{
+            width: 50%;
         }
 `;
 
