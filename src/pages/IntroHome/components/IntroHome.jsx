@@ -16,7 +16,6 @@ const WidthWrapperNoBg = styled.div`
         padding: 50px 0px 0px;
     }
         .body-divs{
-            // background: blue;
             display: flex;
             position: absolute;
             bottom: 0;
@@ -25,7 +24,6 @@ const WidthWrapperNoBg = styled.div`
             max-height: 440px;
             overflow: hidden;
                 div:nth-of-type(1) {
-                    // background: black;
                     width: 40%;
                     a {
                         position: absolute;
@@ -51,7 +49,6 @@ const WidthWrapperNoBg = styled.div`
                     }
                 }
                 div:nth-of-type(2) {
-                    // background: green;
                     width: 60%;
                         img {
                             margin-left: 15px;

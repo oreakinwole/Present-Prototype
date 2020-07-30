@@ -13,7 +13,7 @@ const WidthWrapperCenterMedi = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @media(max-width: 375px) {
+    @media(max-width: 450px) {
         padding-top: 50px;
     }
 `;
@@ -31,7 +31,7 @@ const StartCircle = styled.div`
     align-items: center;
     padding: 0px 80px;
     text-align: center;
-    @media (max-width: 360px) {
+    @media (max-width: 450px) {
         width: 250px;
         height: 250px;
         padding: 0px 40px;
@@ -89,7 +89,7 @@ const SoundControls = styled.div`
                 &:hover{
                     transform: scale(1.2);
                 }
-                @media(max-width: 375px) {
+                @media(max-width: 450px) {
                     font-size: 2.3em;
                 }
 
@@ -97,7 +97,7 @@ const SoundControls = styled.div`
             &:focus {
                 outline: none;
             }
-            @media(max-width: 375px) {
+            @media(max-width: 450px) {
                 width: 50px;
                 height: 50px;
             }
