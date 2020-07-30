@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState, useRef } from 'react';
 import randomstring from 'randomstring';
 import Header from '../../../components/Header';
 import {
     LayoutWrapper, WidthWrapperNoH
 } from '../../../components/reusablestyles/GlobalStyle';
 import SideNav from '../../../components/SideNav';
+import { TodoListDiv } from './style';
 import { todoData } from '../../../utility';
 import rightIcon from '../../../assets/right_gt.svg';
 import cancelIcon from '../../../assets/cancel.svg';
@@ -14,130 +14,11 @@ import downArrow from '../../../assets/arrow-down.svg';
 import check from '../../../assets/check.svg';
 import add from '../../../assets/add.svg';
 
-const TodoListDiv = styled.section`
-margin-top: 40px;
-font-size: 1.2em;
-font-weight: bold;
-    .td-item {
-        display: flex;
-        margin-bottom: 50px;
-            .arrow-div {
-                padding-top: 10px;
-                width: 12px;
-                height: 40px;
-                outline: none;
-                cursor: pointer;
-                    img {
-                        width: 100%;
-                    }
-            }
-
-            header {
-                margin: 0 auto;
-                width: 90%;
-                color: #3C404B;
-                background: white;
-                border-radius: 10px;
-                padding: 10px 0px 10px 20px;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                .caption {
-                    display: flex;
-                    align-items: center;
-                    p{
-                        margin: 0;
-                        margin-right: 10px;
-                        max-width: 50px;
-                        color: white;
-                        background: #263a79;
-                        border-radius: 10px;
-                        padding: 5px 6px;
-                    }
-                    h3{
-                        margin: 0;
-                    }
-                }
-                    .item-info .element {
-                        border-bottom: 1px solid #DCDBDB;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                            .parag {
-                                display: flex;
-                                align-items: center;
-                                p {
-                                    font-weight: 400;
-                                    margin-left: 10px;
-                                }
-                                .wip-check {
-                                    width: 15px;
-                                    cursor: pointer;
-                                        img{
-                                            width: 100%;
-                                        }
-                                }
-                            }
-
-                            .icons-wrapper {
-                                display: flex;
-                                align-items: center;
-                                    div {
-                                        width: 12px;
-                                        margin-right: 15px;
-                                        outline: none;
-                                        cursor: pointer;
-                                            img {
-                                                width: 100%;
-                                            }
-                                    }
-                            }
-
-                    }
-                    .item-info form {
-                        display: flex;
-                        flex-direction: column;
-                        margin-top: 80px;
-                            input {
-                                border: none;
-                                outline: none;
-                                border-bottom: 1px solid #DCDBDB;
-                            }
-                            button {
-                                margin-top: 20px;
-                                border: none;
-                                outline: none;
-                                background: none;
-                                width: 8%;
-                                align-self: flex-end;
-                                cursor: pointer;
-                                img {
-                                    width: 100%;
-                                }
-                            }
-                    }
-                    .item-info .add-item {
-                        margin-top: 20px;
-                        border: none;
-                        outline: none;
-                        background: none;
-                        width: 9%;
-                        float: right;
-                        cursor: pointer;
-                        img {
-                            width: 100%;
-                        }
-                    }
-
-            }
-    }
-
-`;
-
 const Todo = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
     const [todoState, setTodoState] = useState(todoData);
+    const addItemVal = useRef(null);
 
     const doDelete = (e, itI, deI) => {
         const newState = todoState.map((it, index) => {
@@ -187,7 +68,22 @@ const Todo = () => {
         setTodoState(newState);
     };
 
-    const doSubmit = e => e.preventDefault();
+    const doSubmit = (e, i, the) => {
+        e.preventDefault();
+        const newState = todoState.map((it, index) => {
+            if (i === index) {
+                return {
+                    ...it,
+                    details: [
+                        ...it.details,
+                        the,
+                    ],
+                };
+            }
+            return it;
+        });
+        setTodoState(newState);
+    };
 
     return (
         <LayoutWrapper>
@@ -214,6 +110,7 @@ const Todo = () => {
                                         }}
                                     />
                                 </div>
+
                                 <header>
                                     <section className="caption">
                                         <p>{item.details.length}</p>
@@ -269,9 +166,10 @@ const Todo = () => {
                                                     </section>
                                                 </div>
                                             ))}
+
                                             {item.addItem ? (
-                                                <form onSubmit={doSubmit}>
-                                                    <input type="text" maxLength="50" placeholder="add item" />
+                                                <form onSubmit={e => doSubmit(e, itemI, addItemVal.current.value)}>
+                                                    <input type="text" ref={addItemVal} maxLength="50" placeholder="add item" />
                                                     <button type="submit"><img src={check} alt="mark" /></button>
                                                 </form>
                                             )
@@ -285,6 +183,7 @@ const Todo = () => {
                                                         <img src={add} alt="add item" />
                                                     </button>
                                                 )}
+
                                         </section>
                                     )}
                                 </header>
