@@ -74,7 +74,6 @@ margin-bottom: 60px;
 const TimeSpentRow = styled.section`
 display: flex;
 flex-direction: column;
-// background: black;
     .ts-item{
         margin-top: -20px;
         display: flex;

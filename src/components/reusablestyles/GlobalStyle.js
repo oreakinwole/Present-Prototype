@@ -13,8 +13,9 @@ const WidthWrapper = styled.div`
     background-color: #263a79;
     padding: 100px 40px 20px;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh; //formely min-height
     color: white;
+    overflow: hidden;
     @media (max-width: 360px) {
         padding: 100px 10px 0px;
     }

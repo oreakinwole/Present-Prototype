@@ -8,11 +8,12 @@ const WidthWrapperCenterMedi = styled.div`
     padding-top: 100px;
     max-width: 500px;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     @media(max-width: 450px) {
         padding-top: 50px;
     }
@@ -62,7 +63,7 @@ const SoundControls = styled.div`
     bottom: 2%;
     display: flex;
     justify-content: space-evenly;
-    // background: black;
+    overflow: hidden;
         div {
             // background: red;
             width: 80px;
