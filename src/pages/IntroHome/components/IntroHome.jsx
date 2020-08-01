@@ -12,6 +12,7 @@ const WidthWrapperNoBg = styled.div`
     min-height: 100vh;
     color: white;
     text-align: center;
+    overflow: hidden;
     @media (max-width: 360px) {
         padding: 50px 0px 0px;
     }
