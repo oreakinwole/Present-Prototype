@@ -94,7 +94,7 @@ font-weight: bold;
                                 border: none;
                                 outline: none;
                                 background: none;
-                                width: 8%;
+                                width: 28px;
                                 align-self: flex-end;
                                 cursor: pointer;
                                 img {
@@ -107,7 +107,7 @@ font-weight: bold;
                         border: none;
                         outline: none;
                         background: none;
-                        width: 9%;
+                        width: 30px;
                         float: right;
                         cursor: pointer;
                         img {

@@ -22,7 +22,7 @@ const WidthWrapperNoBg = styled.div`
             bottom: 0;
             width: 100%;
             max-width: 500px;
-            max-height: 440px;
+            max-height: 450px;
             overflow: hidden;
                 div:nth-of-type(1) {
                     width: 40%;
@@ -56,12 +56,12 @@ const WidthWrapperNoBg = styled.div`
                             margin-bottom: -5px;
                         }
                     @media (max-width: 576px) {
-                        max-height: 430px;
+                        max-height: 400px;
+                    }
+                    @media (max-width: 320px) {
+                        max-height: 300px;
                     }
                 }
-            @media (max-height: 568px) {
-                max-height: 320px;
-            }
         }
 `;
 
