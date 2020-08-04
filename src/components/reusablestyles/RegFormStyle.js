@@ -19,6 +19,9 @@ const RegForm = styled.form`
             transition: all .4s;
             &:focus{
                 border-bottom: 1px solid #816e77;
+                padding: 8px 0;
+                background: white;
+                color: black;
             }
         }
 `;
