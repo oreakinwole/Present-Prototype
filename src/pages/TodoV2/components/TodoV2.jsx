@@ -180,7 +180,7 @@ const Todo = () => {
                                                         onClick={() => doShowAddForm(itemI)}
                                                         onKeyPress={() => doShowAddForm(itemI)}
                                                     >
-                                                        <img src={add} alt="add item" />
+                                                        <img src={add} alt="add" />
                                                     </button>
                                                 )}
 

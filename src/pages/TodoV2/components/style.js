@@ -8,8 +8,8 @@ font-weight: bold;
         display: flex;
         margin-bottom: 50px;
             .arrow-div {
-                padding-top: 10px;
-                width: 12px;
+                padding-top: 15px;
+                width: 11px;
                 height: 40px;
                 outline: none;
                 cursor: pointer;
@@ -22,7 +22,7 @@ font-weight: bold;
                 margin: 0 auto;
                 width: 90%;
                 color: #3C404B;
-                background: white;
+                background: #dee5f9;
                 border-radius: 10px;
                 padding: 10px 0px 10px 20px;
                 display: flex;
@@ -85,6 +85,8 @@ font-weight: bold;
                         flex-direction: column;
                         margin-top: 80px;
                             input {
+                                background: transparent;
+                                color: inherit;
                                 border: none;
                                 outline: none;
                                 border-bottom: 1px solid #DCDBDB;
@@ -104,9 +106,9 @@ font-weight: bold;
                     }
                     .item-info .add-item {
                         margin-top: 20px;
-                        border: none;
+                        border: 0;
                         outline: none;
-                        background: none;
+                        background: transparent;
                         width: 30px;
                         float: right;
                         cursor: pointer;
