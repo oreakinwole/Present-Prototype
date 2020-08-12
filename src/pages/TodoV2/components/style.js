@@ -22,7 +22,7 @@ font-weight: bold;
                 margin: 0 auto;
                 width: 90%;
                 color: #3C404B;
-                background: #dee5f9;
+                background: #fff;
                 border-radius: 10px;
                 padding: 10px 0px 10px 20px;
                 display: flex;
@@ -109,7 +109,7 @@ font-weight: bold;
                         border: 0;
                         outline: none;
                         background: transparent;
-                        width: 30px;
+                        width: 50px;
                         float: right;
                         cursor: pointer;
                         img {

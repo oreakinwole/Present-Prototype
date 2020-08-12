@@ -12,7 +12,7 @@ import rightIcon from '../../../assets/right_gt.svg';
 import cancelIcon from '../../../assets/cancel.svg';
 import downArrow from '../../../assets/arrow-down.svg';
 import check from '../../../assets/check.svg';
-import add from '../../../assets/add.svg';
+import compose from '../../../assets/compose.svg';
 
 const Todo = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -180,7 +180,7 @@ const Todo = () => {
                                                         onClick={() => doShowAddForm(itemI)}
                                                         onKeyPress={() => doShowAddForm(itemI)}
                                                     >
-                                                        <img src={add} alt="add" />
+                                                        <img src={compose} alt="add" />
                                                     </button>
                                                 )}
 
