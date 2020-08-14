@@ -12,7 +12,7 @@ import rightIcon from '../../../assets/right_gt.svg';
 import cancelIcon from '../../../assets/cancel.svg';
 import downArrow from '../../../assets/arrow-down.svg';
 import check from '../../../assets/check.svg';
-import compose from '../../../assets/compose.svg';
+import compose from '../../../assets/compose.png';
 
 const Todo = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
