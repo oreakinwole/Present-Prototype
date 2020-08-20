@@ -168,20 +168,23 @@ const Todo = () => {
                                             ))}
 
                                             {item.addItem ? (
-                                                <form onSubmit={e => doSubmit(e, itemI, addItemVal.current.value)}>
+                                                <form onSubmit={e => doSubmit(e, itemI, addItemVal.current.value)} className="add-item-form-open">
                                                     <input type="text" ref={addItemVal} maxLength="50" placeholder="add item" />
                                                     <button type="submit"><img src={check} alt="mark" /></button>
                                                 </form>
                                             )
                                                 : (
-                                                    <button
-                                                        className="add-item"
-                                                        type="button"
-                                                        onClick={() => doShowAddForm(itemI)}
-                                                        onKeyPress={() => doShowAddForm(itemI)}
-                                                    >
-                                                        <img src={compose} alt="add" />
-                                                    </button>
+                                                    <form className="add-item-form-close">
+                                                        <button
+                                                            className="add-item-btn"
+                                                            type="button"
+                                                            onClick={() => doShowAddForm(itemI)}
+                                                            onKeyPress={() => doShowAddForm(itemI)}
+                                                        >
+                                                            <img src={compose} alt="add" />
+                                                        </button>
+                                                    </form>
+
                                                 )}
 
                                         </section>

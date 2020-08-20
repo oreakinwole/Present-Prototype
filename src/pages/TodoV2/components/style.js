@@ -80,7 +80,7 @@ font-weight: bold;
                             }
 
                     }
-                    .item-info form {
+                    .item-info .add-item-form-open {
                         display: flex;
                         flex-direction: column;
                         margin-top: 80px;
@@ -104,17 +104,20 @@ font-weight: bold;
                                 }
                             }
                     }
-                    .item-info .add-item {
+                    .item-info .add-item-form-close {
                         margin-top: 20px;
-                        border: 0;
-                        outline: none;
-                        background: transparent;
-                        width: 30px;
-                        float: right;
-                        cursor: pointer;
-                        img {
-                            width: 100%;
-                        }
+                        height: 50px;
+                            .add-item-btn {
+                                border: 0;
+                                outline: none;
+                                background: none;
+                                width: 30px;
+                                float: right;
+                                cursor: pointer;
+                                img {
+                                    width: 100%;
+                                }
+                            }
                     }
 
             }
