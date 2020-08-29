@@ -68,8 +68,7 @@ const Todo = () => {
         setTodoState(newState);
     };
 
-    const doSubmit = (e, i, the) => {
-        e.preventDefault();
+    const doSubmit = (i, the) => {
         const newState = todoState.map((it, index) => {
             if (i === index) {
                 return {
@@ -168,21 +167,29 @@ const Todo = () => {
                                             ))}
 
                                             {item.addItem ? (
-                                                <form onSubmit={e => doSubmit(e, itemI, addItemVal.current.value)} className="add-item-form-open">
+                                                <form className="add-item-form-open">
                                                     <input type="text" ref={addItemVal} maxLength="50" placeholder="add item" />
-                                                    <button type="submit"><img src={check} alt="mark" /></button>
+                                                    <div
+                                                        role="button"
+                                                        tabIndex={0}
+                                                        onClick={() => doSubmit(itemI, addItemVal.current.value)}
+                                                        onKeypress={() => doSubmit(itemI, addItemVal.current.value)}
+                                                    >
+                                                        <img src={check} alt="mark" />
+                                                    </div>
                                                 </form>
                                             )
                                                 : (
                                                     <form className="add-item-form-close">
-                                                        <button
+                                                        <div
                                                             className="add-item-btn"
-                                                            type="button"
+                                                            role="button"
+                                                            tabIndex={0}
                                                             onClick={() => doShowAddForm(itemI)}
                                                             onKeyPress={() => doShowAddForm(itemI)}
                                                         >
                                                             <img src={compose} alt="add" />
-                                                        </button>
+                                                        </div>
                                                     </form>
 
                                                 )}

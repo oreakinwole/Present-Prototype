@@ -91,12 +91,13 @@ font-weight: bold;
                                 outline: none;
                                 border-bottom: 1px solid #DCDBDB;
                             }
-                            button {
+                            div {
                                 margin-top: 20px;
-                                border: none;
-                                outline: none;
+                                margin-right: 10px;
+                                // border: none;
+                                // outline: none;
                                 background: none;
-                                width: 28px;
+                                width: 18px;
                                 align-self: flex-end;
                                 cursor: pointer;
                                 img {
@@ -106,12 +107,13 @@ font-weight: bold;
                     }
                     .item-info .add-item-form-close {
                         margin-top: 20px;
-                        height: 50px;
+                        margin-right: 10px;
+                        // height: 50px;
                             .add-item-btn {
-                                border: 0;
-                                outline: none;
+                                // border: 0;
+                                // outline: none;
                                 background: none;
-                                width: 30px;
+                                width: 20px;
                                 float: right;
                                 cursor: pointer;
                                 img {
