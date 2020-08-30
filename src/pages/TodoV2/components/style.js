@@ -113,7 +113,7 @@ font-weight: bold;
                                 // border: 0;
                                 // outline: none;
                                 background: none;
-                                width: 20px;
+                                width: 18px;
                                 float: right;
                                 cursor: pointer;
                                 img {

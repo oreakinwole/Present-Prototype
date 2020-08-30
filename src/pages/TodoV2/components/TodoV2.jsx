@@ -175,7 +175,7 @@ const Todo = () => {
                                                         onClick={() => doSubmit(itemI, addItemVal.current.value)}
                                                         onKeypress={() => doSubmit(itemI, addItemVal.current.value)}
                                                     >
-                                                        <img src={check} alt="mark" />
+                                                        <img src={compose} alt="submit" />
                                                     </div>
                                                 </form>
                                             )
