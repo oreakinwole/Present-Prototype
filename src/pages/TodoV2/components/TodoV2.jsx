@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-console */
 import React, { useState, useRef } from 'react';
 import randomstring from 'randomstring';
@@ -68,14 +69,16 @@ const Todo = () => {
         setTodoState(newState);
     };
 
-    const doSubmit = (i, the) => {
+    const doSubmit = (evn, i) => {
+        if (evn.type === 'submit') evn.preventDefault();
+        if (!addItemVal.current.value) return;
         const newState = todoState.map((it, index) => {
             if (i === index) {
                 return {
                     ...it,
                     details: [
                         ...it.details,
-                        the,
+                        addItemVal.current.value,
                     ],
                 };
             }
@@ -99,7 +102,7 @@ const Todo = () => {
                                     tabIndex={0}
                                     className="arrow-div"
                                     onClick={() => toggleisOpen(itemI)}
-                                    onKeyPress={() => toggleisOpen(itemI)}
+                                    // onKeyPress={() => toggleisOpen(itemI)}
                                 >
                                     <img
                                         src={rightIcon}
@@ -133,7 +136,7 @@ const Todo = () => {
                                                             role="button"
                                                             tabIndex={0}
                                                             onClick={() => doMoveToNext(itemI, detI)}
-                                                            onKeyPress={() => doMoveToNext(itemI, detI)}
+                                                            // onKeyPress={() => doMoveToNext(itemI, detI)}
                                                             className="wip-check"
                                                         >
                                                             <img src={check} alt="done wip" />
@@ -146,7 +149,7 @@ const Todo = () => {
                                                             role="button"
                                                             tabIndex={0}
                                                             onClick={e => doDelete(e, itemI, detI)}
-                                                            onKeyPress={e => doDelete(e, itemI, detI)}
+                                                            // onKeyPress={e => doDelete(e, itemI, detI)}
                                                         >
                                                             <img src={cancelIcon} alt="delete" />
                                                         </div>
@@ -157,7 +160,7 @@ const Todo = () => {
                                                                     role="button"
                                                                     tabIndex={0}
                                                                     onClick={() => doMoveToNext(itemI, detI)}
-                                                                    onKeyPress={() => doMoveToNext(itemI, detI)}
+                                                                    // onKeyPress={() => doMoveToNext(itemI, detI)}
                                                                 >
                                                                     <img src={downArrow} alt="arrow" />
                                                                 </div>
@@ -167,13 +170,13 @@ const Todo = () => {
                                             ))}
 
                                             {item.addItem ? (
-                                                <form className="add-item-form-open">
+                                                <form onSubmit={e => doSubmit(e, itemI)} className="add-item-form-open">
                                                     <input type="text" ref={addItemVal} maxLength="50" placeholder="add item" />
                                                     <div
                                                         role="button"
                                                         tabIndex={0}
-                                                        onClick={() => doSubmit(itemI, addItemVal.current.value)}
-                                                        onKeypress={() => doSubmit(itemI, addItemVal.current.value)}
+                                                        onClick={e => doSubmit(e, itemI)}
+                                                        // onKeypress={e => doSubmit(e, itemI, addItemVal.current.value)}
                                                     >
                                                         <img src={compose} alt="submit" />
                                                     </div>
@@ -186,7 +189,7 @@ const Todo = () => {
                                                             role="button"
                                                             tabIndex={0}
                                                             onClick={() => doShowAddForm(itemI)}
-                                                            onKeyPress={() => doShowAddForm(itemI)}
+                                                            // onKeyPress={() => doShowAddForm(itemI)}
                                                         >
                                                             <img src={compose} alt="add" />
                                                         </div>
