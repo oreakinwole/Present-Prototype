@@ -17,7 +17,7 @@ import compose from '../../../assets/compose.png';
 const Todo = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const toggleSbOnKeypress = e => ((e.type === 'keypress' && e.which === 13) || (e.type === 'click')) && setSidebarOpen(!sidebarOpen);
-    const [todoState, setTodoState] = useState(todoData);
+    const [todoState, setTodoState] = useState([...todoData]);
     const addItemVal = useRef(null);
 
     const doDelete = (e, itI, deI) => {
