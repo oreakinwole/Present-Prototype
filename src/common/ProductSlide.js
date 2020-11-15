@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import jollofImg from '../images/joll.png'
+import f1 from '../images/productslide/f1.png'
+import f2 from '../images/productslide/f2.png'
+import f3 from '../images/productslide/f3.png'
+import f4 from '../images/productslide/f4.png'
 
 
 const Wrapper = styled.div`
@@ -49,82 +52,55 @@ const Wrapper = styled.div`
     }
 `;
 
+const data = [
+    {
+        img: f1,
+        title: 'Jollof Rice & Beef',
+        desc: 'Same as our regular Jollof rice but Meatier.  Perfect for a large party.',
+        price: '₦ 4,670.00',
+    },
+
+    {
+        img: f2,
+        title: 'Jollof Rice & Beef',
+        desc: 'Same as our regular Jollof rice but Meatier.  Perfect for a large party.',
+        price: '₦ 4,670.00',
+    },
+    {
+        img: f3,
+        title: 'Jollof Rice & Beef',
+        desc: 'Same as our regular Jollof rice but Meatier.  Perfect for a large party.',
+        price: '₦ 4,670.00',
+    },
+    {
+        img: f4,
+        title: 'Jollof Rice & Beef',
+        desc: 'Same as our regular Jollof rice but Meatier.  Perfect for a large party.',
+        price: '₦ 4,670.00',
+    },
+
+]
 const ProductSlide = () => (
     <Wrapper>
-        <div className="item">
-            <header><img src={jollofImg} alt="foodPic" /> </header>
-            <p className="title">Jollof Rice & Beef</p>
-            <p className="desc">Same as our regular Jollof rice but Meatier.  Perfect for a large party. </p>
-            <footer>
-                <div>₦ 4,670.00</div>
-                <div>
-                    <svg width="2" height="16" viewBox="0 0 2 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 0V16" stroke="white" stroke-width="0.4" />
-                    </svg>
+        {
+            data.map(cur => (
+                <div className="item">
+                    <header><img src={cur.img} alt="foodPic" /> </header>
+                    <p className="title">{cur.title}</p>
+                    <p className="desc">{cur.desc}</p>
+                    <footer>
+                        <div>{cur.price}</div>
+                        <div>
+                            <svg width="2" height="16" viewBox="0 0 2 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 0V16" stroke="white" stroke-width="0.4" />
+                            </svg>
+                        </div>
+                        <div>Add to Cart</div>
+                    </footer>
                 </div>
-                <div>Add to Cart</div>
-            </footer>
-        </div>
+            ))
+        }
 
-        <div className="item">
-            <header><img src={jollofImg} alt="foodPic" /> </header>
-            <p className="title">Jollof Rice & Beef</p>
-            <p className="desc">Same as our regular Jollof rice but Meatier.  Perfect for a large party. </p>
-            <footer>
-                <div>₦ 4,670.00</div>
-                <div>
-                    <svg width="2" height="16" viewBox="0 0 2 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 0V16" stroke="white" stroke-width="0.4" />
-                    </svg>
-                </div>
-                <div>Add to Cart</div>
-            </footer>
-        </div>
-
-        <div className="item">
-            <header><img src={jollofImg} alt="foodPic" /> </header>
-            <p className="title">Jollof Rice & Beef</p>
-            <p className="desc">Same as our regular Jollof rice but Meatier.  Perfect for a large party. </p>
-            <footer>
-                <div>₦ 4,670.00</div>
-                <div>
-                    <svg width="2" height="16" viewBox="0 0 2 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 0V16" stroke="white" stroke-width="0.4" />
-                    </svg>
-                </div>
-                <div>Add to Cart</div>
-            </footer>
-        </div>
-
-        <div className="item">
-            <header><img src={jollofImg} alt="foodPic" /> </header>
-            <p className="title">Jollof Rice & Beef</p>
-            <p className="desc">Same as our regular Jollof rice but Meatier.  Perfect for a large party. </p>
-            <footer>
-                <div>₦ 4,670.00</div>
-                <div>
-                    <svg width="2" height="16" viewBox="0 0 2 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 0V16" stroke="white" stroke-width="0.4" />
-                    </svg>
-                </div>
-                <div>Add to Cart</div>
-            </footer>
-        </div>
-
-        <div className="item">
-            <header><img src={jollofImg} alt="foodPic" /> </header>
-            <p className="title">Jollof Rice & Beef</p>
-            <p className="desc">Same as our regular Jollof rice but Meatier.  Perfect for a large party. </p>
-            <footer>
-                <div>₦ 4,670.00</div>
-                <div>
-                    <svg width="2" height="16" viewBox="0 0 2 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 0V16" stroke="white" stroke-width="0.4" />
-                    </svg>
-                </div>
-                <div>Add to Cart</div>
-            </footer>
-        </div>
     </Wrapper>
 
 );
