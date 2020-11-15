@@ -4,12 +4,26 @@ import headPic from './images/headpic.png';
 import caret from './images/caret.svg';
 import locationIcon from './images/location.svg';
 
+import Heading from './common/Heading';
+
+/* Headers */
+import Popular from './common/headers/Popular';
+import OurCategoriesHead from './common/headers/OurCategories';
+import Offers from './common/headers/Offers';
+
+import ProductSlide from './common/ProductSlide';
+import Categories from './common/Categories';
+import InfoDiv from './common/InfoDiv';
+
 const MainWrapper = styled.div`
     width: 100%;
-        header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+        .headerrr {
             width: 100%;
-            height: 1033px;
-            background: #fff url(${headPic}) no-repeat center;
+            height: 100vh;
+            background: #fff url(${headPic}) center no-repeat;
 
             padding: 0 56px;
 
@@ -98,7 +112,7 @@ const MainWrapper = styled.div`
 
 const App = () => (
     <MainWrapper>
-        <header>
+        <header className="headerrr">
             <nav>
                 <div className="left">
                     <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,6 +138,19 @@ const App = () => (
                 <p className="cta">Sign up for extra features</p>
             </main>
         </header>
+
+        <Heading> <Popular /> </Heading>
+        <ProductSlide />
+
+        <Heading> <OurCategoriesHead /> </Heading>
+        <Categories />
+
+        <InfoDiv />
+
+        <ProductSlide />
+
+        <Heading> <Offers /> </Heading>
+
 
     </MainWrapper>
 );
